@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e39c2ef7-ae80-49ed-a084-6cacabaf3c94/deploy-status)](https://app.netlify.com/sites/netzler/deploys)
+
 # Madu Framework
 This is my own little framework based on webpack including typescript, static components and a compiler which compiles all files into 3.
 
