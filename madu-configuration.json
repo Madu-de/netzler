@@ -1,0 +1,4 @@
+{
+  "$schema": "./src/core/configuration-schema.json",
+  "template-element": "madu-template"
+}
