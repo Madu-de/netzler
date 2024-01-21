@@ -7,6 +7,6 @@ Hierfür nutzen wir mein selbst gebautes kleines Framework, welches die Arbeit m
 ## Das Spiel
 Das Spiel soll eine stark vereinfachte Simulation von [Cisco Packet Tracer](https://www.netacad.com/courses/packet-tracer) darstellen, einer Software zur Netzwerksimulation, die wir im Rahmen unseres Netzwerktechnik-Unterrichts verwenden. Der Spieler wird dabei von einem virtuellen Charakter durch die Welt der Netzwerktechnik geführt und bei der Konfiguration von Netzwerken unterstützt
 
-Die aktuelle Version des Spiels findest du [hier](https://rbz-netzler.de)
+Die aktuelle Version des Spiels findest du [hier](https://rbz-netzler.de).
 
 Die Dokumentation zum Framework findest du [hier](https://github.com/Madu-de/madu-framework/blob/main/README.md).
