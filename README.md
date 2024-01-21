@@ -5,7 +5,7 @@ Dieses Projekt entsteht im Rahmen meiner schulischen Ausbildung. Ziel ist es, in
 Hierfür nutzen wir mein selbst gebautes kleines Framework, welches die Arbeit mit einem Canvas vereinfacht und statische Components beinhaltet.
 
 ## Das Spiel
-Das Spiel soll eine stark vereinfachte Simulation von [Cisco Packet Tracer](https://www.netacad.com/courses/packet-tracer) darstellen, einer Software zur Netzwerksimulation, die wir im Rahmen unseres Netzwerktechnik-Unterrichts verwenden. Der Spieler wird dabei von einem virtuellen Charakter durch die Welt der Netzwerktechnik geführt und bei der Konfiguration von Netzwerken unterstützt
+Das Spiel soll eine stark vereinfachte Simulation von [Cisco Packet Tracer](https://www.netacad.com/courses/packet-tracer) darstellen, einer Software zur Netzwerksimulation, die wir im Rahmen unseres Netzwerktechnik-Unterrichts verwenden. Der Spieler wird dabei von einem virtuellen Charakter durch die Welt der Netzwerktechnik geführt und bei der Konfiguration von Netzwerken unterstützt.
 
 Die aktuelle Version des Spiels findest du [hier](https://rbz-netzler.de).
 
