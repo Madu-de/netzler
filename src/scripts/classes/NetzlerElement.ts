@@ -22,9 +22,12 @@ export class NetzlerElement {
   }
 
   createConnection(connection: NetzlerElement, line?: CanvasLine): void {
-    line = line || Globals.canvas.addLineBetweenElements(this.canvasElement, connection.getCanvasElement(), 5, 'yellow');
-    this.connections.push({ element: connection, line });
-    if (!line) connection.createConnection(this, line);
+    if (this.connections.some((nconnection: NetzlerConnection) => nconnection.element.getCanvasElement().id === connection.getCanvasElement().id)) {
+      throw new Error('Connection already exists');
+    }
+    const drawedLine: CanvasLine = line || Globals.canvas.addLineBetweenElements(this.canvasElement, connection.getCanvasElement(), 5, 'yellow');
+    this.connections.push({ element: connection, line: drawedLine });
+    if (!line) connection.createConnection(this, drawedLine);
   }
 
   removeConnection(connection: NetzlerElement, internal?: boolean): void {
