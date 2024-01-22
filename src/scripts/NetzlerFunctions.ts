@@ -40,6 +40,7 @@ export const cableTool: NetzlerFunction = (mousecoords: CanvasCoords): void => {
     if (canvasElement.isPointInElement(mousecoords)) {
       if (selectedElement) {
         selectedElement.createConnection(element);
+        selectedElement = undefined;
         return;
       }
       selectedElement = element;
