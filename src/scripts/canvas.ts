@@ -1,51 +1,34 @@
-import { CanvasLine } from './../core/canvas/CanvasLine';
-import { Canvas } from "../core/canvas/Canvas";
-import { CanvasCoords } from "../core/canvas/CanvasCoords";
+import { Globals } from './globals';
+import { CanvasCoords } from './../core/canvas/CanvasCoords';
 import { CanvasElement } from "../core/canvas/CanvasElement";
+import { NetzlerElement } from "./classes/NetzlerElement";
+import { NetzlerTool } from './netzlertypes';
+import { selectionTool, moveTool, deleteTool, cableTool } from './NetzlerFunctions';
+
 
 // Canvas example
-const canvasElement: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById('canvas');
-const canvas: Canvas = new Canvas(canvasElement);
-const duck1: CanvasElement = new CanvasElement(200, 200, <HTMLImageElement>document.getElementById('madupng'), 50, 50);
-const duck2: CanvasElement = new CanvasElement(550, 150, <HTMLImageElement>document.getElementById('madupng'), 50, 50);
-canvas.addElement(duck1);
-canvas.addElement(duck2);
-const line: CanvasLine = canvas.addLineBetweenElements(duck1, duck2, 10, 'yellow');
-canvas.render();
+const pcCanvasElement: CanvasElement = new CanvasElement(100, 100, <HTMLImageElement>document.getElementById('pcpng'), 50, 50);
+const pc: NetzlerElement = new NetzlerElement(pcCanvasElement);
+Globals.canvas.addElement(pc.getCanvasElement());
+Globals.canvas.render();
 
-window.addEventListener('keydown', (ev: KeyboardEvent) => {
-  const c: CanvasCoords = new CanvasCoords(duck1.getCoords().getX(), duck1.getCoords().getY());
+function switchTool(tool: NetzlerTool): void {
+  Globals.selectedTool = tool;
+} 
 
-  if (ev.key === 'ArrowDown') {
-    c.setY(c.getY() + 10);
-  } 
-  if (ev.key === 'ArrowUp') {
-    c.setY(c.getY() - 10);
-  } 
-  if (ev.key === 'ArrowRight') {
-    c.setX(c.getX() + 10);
-  } 
-  if (ev.key === 'ArrowLeft') {
-    c.setX(c.getX() - 10);
-  }
-  if (!duck2.isRectangleInElement(c, duck1.getHeight(), duck1.getWidth()) && c.isInCanvas(canvas, duck1.getHeight(), duck1.getWidth())) {
-    duck1.setCoords(c);
-  }
+document.querySelectorAll('.toolbar-item').forEach((item: HTMLElement) => {
+  item.addEventListener('click', () => {
+    switchTool(<NetzlerTool>item.id);
+  });
 });
 
-let follow: boolean = false;
-
-function followMouse(ev: MouseEvent): void {
-  duck2.getCoords().setX(canvas.getCanvasMouseCoords(ev).getX() - (duck2.getWidth() / 2));
-  duck2.getCoords().setY(canvas.getCanvasMouseCoords(ev).getY() - (duck2.getHeight() / 2));
-}
-
-canvasElement.addEventListener('mouseup', (ev: MouseEvent) => {
-  if (duck2.isPointInElement(canvas.getCanvasMouseCoords(ev))) {
-    follow = !follow;
-    followMouse(ev);
-    follow ? canvasElement.addEventListener('mousemove', followMouse) : canvasElement.removeEventListener('mousemove', followMouse);
-    follow ? line.setWidth(5) : line.setWidth(10);
-    follow ? line.setStyle('red') : line.setStyle('yellow');
-  }
+Globals.canvasElement.addEventListener('click', (ev: MouseEvent) => {
+  const mousecoords: CanvasCoords = Globals.canvas.getCanvasMouseCoords(ev);
+  const toolMethods: Map<NetzlerTool, Function> = new Map<NetzlerTool, Function>([
+    ['selection', selectionTool],
+    ['move', moveTool],
+    ['delete', deleteTool],
+    ['cable', cableTool],
+  ]);
+  toolMethods.get(Globals.selectedTool)(mousecoords);
 });

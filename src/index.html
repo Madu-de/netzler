@@ -7,12 +7,24 @@
 </head>
 <body>
   <app-header></app-header>
-  <app-body>
-    This is my own little framework based on webpack including typescript, static components and a compiler which compiles all files into 3.
-    <img src="./assets/madu.png" alt="Profilepicture" class="rotate" style="padding: 20px;">
-    <p>Here a little canvas example:</p>
-  </app-body>
-  <canvas id="canvas" width="720" height="420" style="position: relative; left: 50%; translate: -50%; border: 2px white solid; margin: 20px;"></canvas>
+  <div id="body">
+    <canvas id="canvas" width="720" height="420"></canvas>
+    <div id="toolbar">
+      <div class="toolbar-item" id="selection">
+        <img src="./assets/selection-tool.svg" alt="Selection tool">
+      </div>
+      <div class="toolbar-item" id="cable">
+        <img src="./assets/cable-tool.svg" alt="Cable tool">
+      </div>
+      <div class="toolbar-item" id="delete">
+        <img src="./assets/delete-tool.svg" alt="Delete tool">
+      </div>
+      <div class="toolbar-item" id="move">
+        <img src="./assets/move-tool.svg" alt="Selection tool">
+      </div>
+    </div>
+  </div>
+
   <app-footer></app-footer>
   <!--Canvas images-->
   <canvas-images style="display: none;"></canvas-images>

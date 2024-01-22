@@ -1,0 +1,30 @@
+#body {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+  height: 420px;
+
+  #canvas {
+    border: black 2px solid;
+  }
+
+  #toolbar {
+    width: 80px;
+    border: black 2px solid;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+
+    .toolbar-item {
+      img {
+        height: 50px;
+      }
+    }
+  }
+}
