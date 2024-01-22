@@ -19,6 +19,9 @@ Globals.canvas.addElement(pc3.getCanvasElement());
 Globals.elements = [pc, pc2, pc3];
 Globals.canvas.render();
 
+Globals.elements.push(pc);
+Globals.elements.push(pc2);
+
 function switchTool(tool: NetzlerTool): void {
   Globals.selectedTool = tool;
 } 
