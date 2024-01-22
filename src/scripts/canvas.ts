@@ -9,7 +9,11 @@ import { selectionTool, moveTool, deleteTool, cableTool } from './NetzlerFunctio
 // Canvas example
 const pcCanvasElement: CanvasElement = new CanvasElement(100, 100, <HTMLImageElement>document.getElementById('pcpng'), 50, 50);
 const pc: NetzlerElement = new NetzlerElement(pcCanvasElement);
+const pcCanvasElement2: CanvasElement = new CanvasElement(200, 200, <HTMLImageElement>document.getElementById('pcpng'), 50, 50);
+const pc2: NetzlerElement = new NetzlerElement(pcCanvasElement2);
 Globals.canvas.addElement(pc.getCanvasElement());
+Globals.canvas.addElement(pc2.getCanvasElement());
+Globals.elements = [pc, pc2];
 Globals.canvas.render();
 
 function switchTool(tool: NetzlerTool): void {
