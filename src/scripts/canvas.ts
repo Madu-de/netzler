@@ -19,15 +19,26 @@ Globals.canvas.addElement(pc3.getCanvasElement());
 Globals.elements = [pc, pc2, pc3];
 Globals.canvas.render();
 
+let cursorImage: HTMLImageElement;
+
 function switchTool(tool: NetzlerTool): void {
   Globals.selectedTool = tool;
-} 
+  const toolCursorImages: Map<NetzlerTool, HTMLImageElement> = new Map<NetzlerTool, HTMLImageElement>([
+    ['selection', <HTMLImageElement>document.getElementById('selection-image')],
+    ['move', <HTMLImageElement>document.getElementById('move-image')],
+    ['delete', <HTMLImageElement>document.getElementById('delete-image')],
+    ['cable', <HTMLImageElement>document.getElementById('cable-image')],
+  ]);
+  const element: HTMLImageElement = toolCursorImages.get(tool)!;
+  cursorImage = element;
+}
 
 document.querySelectorAll('.toolbar-item').forEach((item: HTMLElement) => {
   item.addEventListener('click', () => {
     switchTool(<NetzlerTool>item.id);
   });
 });
+
 
 Globals.canvasElement.addEventListener('click', (ev: MouseEvent) => {
   const mousecoords: CanvasCoords = Globals.canvas.getCanvasMouseCoords(ev);
@@ -38,4 +49,16 @@ Globals.canvasElement.addEventListener('click', (ev: MouseEvent) => {
     ['cable', cableTool],
   ]);
   toolMethods.get(Globals.selectedTool)(mousecoords);
+});
+
+const cursorElement: HTMLElement = document.querySelector('#cursor');
+
+// Globals.canvasElement.addEventListener('mousemove', (ev: MouseEvent) => {
+//   cursorElement.innerHTML = '';
+//   cursorElement.append(cursorImage);
+//   cursorElement.style.top = ev.pageY + 'px';
+//   cursorElement.style.left = ev.pageX + 'px';
+// });
+
+Globals.canvasElement.addEventListener('mouseout', (ev: MouseEvent) => {
 });

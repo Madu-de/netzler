@@ -12,7 +12,12 @@ export const moveTool: NetzlerFunction = (mousecoords: CanvasCoords): void => {
 };
 
 export const selectionTool: NetzlerFunction = (mousecoords: CanvasCoords): void => {
-  console.log(mousecoords, 'selectionTool');
+  const elements: NetzlerElement[] = Globals.elements;
+  elements.forEach((element: NetzlerElement) => {
+    if (element.getCanvasElement().isPointInElement(mousecoords)) {
+      element.selected = true;
+    }
+  });
 };
 
 export const deleteTool: NetzlerFunction = (mousecoords: CanvasCoords): void => {
