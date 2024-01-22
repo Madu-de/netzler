@@ -27,7 +27,7 @@ function switchTool(tool: NetzlerTool): void {
     ['delete', <HTMLImageElement>document.getElementById('delete-image')],
     ['cable', <HTMLImageElement>document.getElementById('cable-image')],
   ]);
-  Globals.canvasElement.style.cursor = `url('${toolCursorImages.get(tool).src}') 25 15, auto`;
+  Globals.canvasElement.style.cursor = `url('${toolCursorImages.get(tool).src}') 15 15, auto`;
 }
 
 document.querySelectorAll('.toolbar-item').forEach((item: HTMLElement) => {

@@ -13,7 +13,6 @@ export const moveTool: NetzlerFunction = (mousecoords: CanvasCoords): void => {
   const elements: NetzlerElement[] = Globals.elements;
   if (followElement) {
     Globals.canvasElement.removeEventListener('mousemove', followMouse);
-      
     followElement = undefined;
   } else {
     elements.forEach((nelement: NetzlerElement) => {
