@@ -18,5 +18,10 @@ export class NetzlerElement {
   createConnection(connection: NetzlerElement): void {
     const line: CanvasLine = Globals.canvas.addLineBetweenElements(this.canvasElement, connection.getCanvasElement());
     this.connections.push({ element: connection, line });
+    connection.addConnection(this, line);
+  }
+
+  addConnection(connection: NetzlerElement, line: CanvasLine): void {
+    this.connections.push({ element: connection, line });
   }
 }

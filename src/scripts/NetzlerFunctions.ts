@@ -15,5 +15,5 @@ export const deleteTool: NetzlerFunction = (mousecoords: CanvasCoords): void => 
 };
 
 export const cableTool: NetzlerFunction = (mousecoords: CanvasCoords): void => {
-  console.log(mousecoords, 'cableTool');
+  
 };
