@@ -1,5 +1,6 @@
 $border: 1px solid rgba(99, 99, 99, 0.274);
 
+
 #body {
   margin-top: 20px;
   display: flex;
@@ -8,10 +9,22 @@ $border: 1px solid rgba(99, 99, 99, 0.274);
   gap: 10px;
   height: 420px;
 
+  @media screen and (max-width: 820px) {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  @media screen and (max-width: 720px) {
+    display: none;
+  }
+
   #canvas {
     background: url(../assets/canvas-background.png) no-repeat;
     border-radius: 20px;
     border: $border;
+    height: 420px;
+    width: 720px;
   }
 
   #toolbar {
@@ -26,6 +39,17 @@ $border: 1px solid rgba(99, 99, 99, 0.274);
     border: $border;
     border-radius: 20px;
     gap: 15px;
+
+    @media screen and (max-width: 820px) {
+      padding: 10px;
+      flex-direction: row;
+      width: 720px;
+      justify-content: center;
+
+      hr {
+        display: none;
+      }
+    }
 
     hr {
       border: 1px solid rgba(128, 128, 128, 0.192);
