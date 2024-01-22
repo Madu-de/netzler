@@ -11,8 +11,12 @@ const pcCanvasElement: CanvasElement = new CanvasElement(100, 100, <HTMLImageEle
 const pc: NetzlerElement = new NetzlerElement(pcCanvasElement);
 const pcCanvasElement2: CanvasElement = new CanvasElement(200, 200, <HTMLImageElement>document.getElementById('pcpng'), 50, 50);
 const pc2: NetzlerElement = new NetzlerElement(pcCanvasElement2);
+const pcCanvasElement3: CanvasElement = new CanvasElement(500, 250, <HTMLImageElement>document.getElementById('pcpng'), 50, 50);
+const pc3: NetzlerElement = new NetzlerElement(pcCanvasElement3);
 Globals.canvas.addElement(pc.getCanvasElement());
 Globals.canvas.addElement(pc2.getCanvasElement());
+Globals.canvas.addElement(pc3.getCanvasElement());
+Globals.elements = [pc, pc2, pc3];
 Globals.canvas.render();
 
 Globals.elements.push(pc);
