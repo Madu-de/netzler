@@ -11,3 +11,7 @@ ComponentManager.manage([
 ]);
 
 import './canvas';
+
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+  document.body.innerHTML = 'Dein Gerät wird nicht unterstützt!';
+}

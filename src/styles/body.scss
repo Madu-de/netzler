@@ -1,3 +1,5 @@
+$border: 1px solid rgba(99, 99, 99, 0.274);
+
 #body {
   margin-top: 20px;
   display: flex;
@@ -7,23 +9,40 @@
   height: 420px;
 
   #canvas {
-    border: black 2px solid;
+    background: url(../assets/canvas-background.png) no-repeat;
+    border-radius: 20px;
+    border: $border;
   }
 
   #toolbar {
+    padding-top: 20px;
     width: 80px;
-    border: black 2px solid;
     height: 100%;
 
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
-    gap: 10px;
+    background-color: white;
+    border: $border;
+    border-radius: 20px;
+    gap: 15px;
+
+    hr {
+      border: 1px solid rgba(128, 128, 128, 0.192);
+      border-radius: 100%;
+      width: 80%;
+    }
 
     .toolbar-item {
+      transition: all 0.5s;
+      cursor: pointer;
+
       img {
-        height: 50px;
+        height: 38px;
+      }
+
+      &:hover {
+        scale: 1.1;
       }
     }
   }

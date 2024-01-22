@@ -7,19 +7,17 @@ import { selectionTool, moveTool, deleteTool, cableTool } from './NetzlerFunctio
 
 
 // Canvas example
-const pcCanvasElement: CanvasElement = new CanvasElement(100, 100, <HTMLImageElement>document.getElementById('pcpng'), 50, 50);
+const pcCanvasElement: CanvasElement = new CanvasElement(100, 100, <HTMLImageElement>document.getElementById('pcpng'), 100, 100);
 const pc: NetzlerElement = new NetzlerElement(pcCanvasElement);
-const pcCanvasElement2: CanvasElement = new CanvasElement(200, 200, <HTMLImageElement>document.getElementById('pcpng'), 50, 50);
+const pcCanvasElement2: CanvasElement = new CanvasElement(200, 200, <HTMLImageElement>document.getElementById('laptoppng'), 80, 80);
 const pc2: NetzlerElement = new NetzlerElement(pcCanvasElement2);
-const pcCanvasElement3: CanvasElement = new CanvasElement(500, 250, <HTMLImageElement>document.getElementById('pcpng'), 50, 50);
+const pcCanvasElement3: CanvasElement = new CanvasElement(500, 250, <HTMLImageElement>document.getElementById('switchpng'), 120, 120);
 const pc3: NetzlerElement = new NetzlerElement(pcCanvasElement3);
 Globals.canvas.addElement(pc.getCanvasElement());
 Globals.canvas.addElement(pc2.getCanvasElement());
 Globals.canvas.addElement(pc3.getCanvasElement());
 Globals.elements = [pc, pc2, pc3];
 Globals.canvas.render();
-
-let cursorImage: HTMLImageElement;
 
 function switchTool(tool: NetzlerTool): void {
   Globals.selectedTool = tool;
@@ -29,8 +27,7 @@ function switchTool(tool: NetzlerTool): void {
     ['delete', <HTMLImageElement>document.getElementById('delete-image')],
     ['cable', <HTMLImageElement>document.getElementById('cable-image')],
   ]);
-  const element: HTMLImageElement = toolCursorImages.get(tool)!;
-  cursorImage = element;
+  Globals.canvasElement.style.cursor = `url('${toolCursorImages.get(tool).src}') 25 15, auto`;
 }
 
 document.querySelectorAll('.toolbar-item').forEach((item: HTMLElement) => {
@@ -49,16 +46,4 @@ Globals.canvasElement.addEventListener('click', (ev: MouseEvent) => {
     ['cable', cableTool],
   ]);
   toolMethods.get(Globals.selectedTool)(mousecoords);
-});
-
-const cursorElement: HTMLElement = document.querySelector('#cursor');
-
-// Globals.canvasElement.addEventListener('mousemove', (ev: MouseEvent) => {
-//   cursorElement.innerHTML = '';
-//   cursorElement.append(cursorImage);
-//   cursorElement.style.top = ev.pageY + 'px';
-//   cursorElement.style.left = ev.pageX + 'px';
-// });
-
-Globals.canvasElement.addEventListener('mouseout', (ev: MouseEvent) => {
 });
