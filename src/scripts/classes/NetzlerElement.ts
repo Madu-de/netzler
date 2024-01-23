@@ -8,6 +8,7 @@ import { togglePopup } from '../NetzlerFunctions';
 export class NetzlerElement {
   private canvasElement: CanvasElement;
   private connections: NetzlerConnection[];
+  private maxConnections: number;
   private netzlerPopup: NetzlerPopup;
   selected: boolean = false;
   settings: Map<string, string> = new Map<string, string>();
@@ -20,6 +21,14 @@ export class NetzlerElement {
 
   getCanvasElement(): CanvasElement {
     return this.canvasElement;
+  }
+
+  setMaxConnections(maxConnections: number): void {
+    this.maxConnections = maxConnections;
+  }
+
+  getMaxConnections(): number {
+    return this.maxConnections;
   }
 
   getConnectionsCopy(): NetzlerConnection[] {
@@ -36,6 +45,9 @@ export class NetzlerElement {
     }
     if (this.canvasElement.id === connection.canvasElement.id) {
       throw new Error('Cannot connect to self');
+    }
+    if (this.getConnectionsCopy().length === this.getMaxConnections() || connection.getConnectionsCopy().length === connection.getMaxConnections()) {
+      throw new Error('Maximum number of connections reached');
     }
     const drawedLine: CanvasLine = line || Globals.canvas.addLineBetweenElements(this.canvasElement, connection.getCanvasElement(), 7, 'black');
     this.connections.push({ element: connection, line: drawedLine });
