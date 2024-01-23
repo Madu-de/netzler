@@ -111,19 +111,13 @@ export function togglePopup(name: string = '', body: string = '', netzlerElement
   netzlerElement.settings.forEach((value: string, key: string) => {
     popup.querySelector('.popup-body').querySelector(`[name=${key}]`).setAttribute('value', value || '');
   });
-  function handleSuccessClick(): void {
-    netzlerElement.settings.clear();
-    popup.querySelector('.popup-body').querySelectorAll('.netzler-popup-item').forEach((item: HTMLElement) => {
-      netzlerElement.settings.set(item.getAttribute('name'), item['value'] || item.getAttribute('value'));
-    });
-    ((): void => {
-      togglePopup();
-    })();
-  }
-  popup.querySelector('.button-success').addEventListener('click', () => {
-    handleSuccessClick();
-  }, {
-    once: true,
-  });
+  Globals.currentPopupNetzlerElement = netzlerElement;
 }
 
+export function handleSuccessClick(netzlerElement: NetzlerElement, popup: HTMLElement): void {
+  netzlerElement.settings.clear();
+  popup.querySelector('.popup-body').querySelectorAll('.netzler-popup-item').forEach((item: HTMLElement) => {
+    netzlerElement.settings.set(item.getAttribute('name'), item['value'] || item.getAttribute('value'));
+  });
+  togglePopup();
+}

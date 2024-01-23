@@ -32,9 +32,16 @@ document.querySelectorAll('.toolbar-item').forEach((item: HTMLElement) => {
 });
 
 document.querySelectorAll('.popup-close-element').forEach((item: HTMLElement) => {
-  item.addEventListener('click', () => {
-    togglePopup();
+  item.addEventListener('click', () => togglePopup());
+});
+
+document.querySelector('.button-success').addEventListener('click', () => {
+  const popup: HTMLElement = <HTMLElement>document.getElementById('popup');
+  Globals.currentPopupNetzlerElement.settings.clear();
+  popup.querySelector('.popup-body').querySelectorAll('.netzler-popup-item').forEach((item: HTMLElement) => {
+    Globals.currentPopupNetzlerElement.settings.set(item.getAttribute('name'), item['value'] || item.getAttribute('value'));
   });
+  togglePopup();
 });
 
 

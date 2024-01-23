@@ -7,4 +7,6 @@ export class Globals {
   static canvasElement: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById('canvas');
   static canvas: Canvas = new Canvas(this.canvasElement);
   static elements: NetzlerElement[] = [];
+
+  static currentPopupNetzlerElement: NetzlerElement;
 }
