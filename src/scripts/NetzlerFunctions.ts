@@ -27,18 +27,28 @@ export const moveTool: NetzlerFunction = (mousecoords: CanvasCoords): void => {
   }
 };
 
-export function togglePopup(): void {
+export function togglePopup(name: string = '', body: string = '', netzlerElement?: NetzlerElement): void {
   const popup: HTMLElement = <HTMLElement>document.getElementById('popup');
   const blur: HTMLElement = <HTMLElement>document.getElementById('pop-up-blur');
+  popup.querySelector('.popup-title').innerHTML = name;
+  popup.querySelector('.popup-body').innerHTML = body;
   popup.classList.toggle('hidden');
   blur.classList.toggle('hidden');
+  if (!netzlerElement) return;
+  popup.querySelector('.button-success').addEventListener('click', () => {
+    netzlerElement.settings.clear();
+    popup.querySelector('.popup-body').querySelectorAll('.netzler-popup-item').forEach((item: HTMLElement) => {
+      netzlerElement.settings.set(item.getAttribute('name'), item['value'] || item.getAttribute('value'));
+    });
+    console.log(netzlerElement.settings);
+  });
 }
 
 export const selectionTool: NetzlerFunction = (mousecoords: CanvasCoords): void => {
   const elements: NetzlerElement[] = Globals.elements;
   elements.forEach((element: NetzlerElement) => {
     if (element.getCanvasElement().isPointInElement(mousecoords)) {
-      togglePopup();
+      element.popup();
     }
   });
 };

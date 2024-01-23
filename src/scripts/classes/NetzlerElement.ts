@@ -1,16 +1,21 @@
+import { NetzlerPopup } from './NetzlerPopup';
 import { CanvasElement } from "../../core/canvas/CanvasElement";
 import { CanvasLine } from "../../core/canvas/CanvasLine";
 import { Globals } from "../globals";
 import { NetzlerConnection } from "../netzlertypes";
+import { togglePopup } from '../NetzlerFunctions';
 
 export class NetzlerElement {
   private canvasElement: CanvasElement;
   private connections: NetzlerConnection[];
+  private netzlerPopup: NetzlerPopup;
   selected: boolean = false;
+  settings: Map<string, string> = new Map<string, string>();
 
-  constructor(canvasElement: CanvasElement) {
+  constructor(canvasElement: CanvasElement, netzlerPopup: NetzlerPopup) {
     this.canvasElement = canvasElement;
     this.connections = [];
+    this.netzlerPopup = netzlerPopup;
   }
 
   getCanvasElement(): CanvasElement {
@@ -19,6 +24,10 @@ export class NetzlerElement {
 
   getConnectionsCopy(): NetzlerConnection[] {
     return [...this.connections];
+  }
+
+  popup(): void {
+    togglePopup(this.netzlerPopup.getName(), this.netzlerPopup.getBody(), this);
   }
 
   createConnection(connection: NetzlerElement, line?: CanvasLine): void {
