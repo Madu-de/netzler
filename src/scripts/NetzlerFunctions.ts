@@ -82,7 +82,7 @@ export const cableTool: NetzlerFunction = (mousecoords: CanvasCoords): void => {
         try {
           selectedElement.createConnection(element);
         } catch (error) {
-          console.error(error.message, '- Selected element will be removed');
+          showError(error.message);
         } finally {
           selectedElement = undefined;
         }
@@ -108,4 +108,13 @@ export function switchTool(tool: NetzlerTool): void {
     ['cable', <HTMLImageElement>document.getElementById('cable-image')],
   ]);
   Globals.canvasElement.style.cursor = `url('${toolCursorImages.get(tool).src}') 15 15, auto`;
+}
+
+export function showError(message: string): void {
+  const errorElement: HTMLElement = <HTMLElement>document.getElementById('error-notification');
+  errorElement.innerHTML = message;
+  errorElement.classList.toggle('hidden');
+  setTimeout(() => {
+    errorElement.classList.toggle('hidden');
+  }, 2500);
 }

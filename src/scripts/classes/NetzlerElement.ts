@@ -41,13 +41,13 @@ export class NetzlerElement {
 
   createConnection(connection: NetzlerElement, line?: CanvasLine): void {
     if (this.connections.some((nconnection: NetzlerConnection) => nconnection.element.getCanvasElement().id === connection.getCanvasElement().id)) {
-      throw new Error('Connection already exists');
+      throw new Error('Diese Verbindung existiert bereits!');
     }
     if (this.canvasElement.id === connection.canvasElement.id) {
-      throw new Error('Cannot connect to self');
+      throw new Error('Elemente können nicht mit sich selbst verbunden werden!');
     }
-    if (this.getConnectionsCopy().length === this.getMaxConnections() || connection.getConnectionsCopy().length === connection.getMaxConnections()) {
-      throw new Error('Maximum number of connections reached');
+    if (!line && (this.getConnectionsCopy().length === this.getMaxConnections() || connection.getConnectionsCopy().length === connection.getMaxConnections())) {
+      throw new Error('Keine Ports mehr verfügbar!');
     }
     const drawedLine: CanvasLine = line || Globals.canvas.addLineBetweenElements(this.canvasElement, connection.getCanvasElement(), 7, 'black');
     this.connections.push({ element: connection, line: drawedLine });
