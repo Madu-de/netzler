@@ -1,5 +1,4 @@
-$border: 1px solid rgba(99, 99, 99, 0.274);
-
+@import './variables.scss';
 
 #body {
   margin-top: 20px;
@@ -65,8 +64,12 @@ $border: 1px solid rgba(99, 99, 99, 0.274);
         height: 38px;
       }
 
+      &.selected {
+        scale: 1.13;
+      }
+
       &:hover {
-        scale: 1.1;
+        scale: 1.13;
       }
     }
   }

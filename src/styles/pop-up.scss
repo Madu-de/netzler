@@ -1,0 +1,90 @@
+@import './variables.scss';
+
+.pop-up {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    height: 60dvh;
+    min-height: 480.6px;
+    width: 456.2px;
+    background-color: white;
+    border: $border;
+    border-radius: 20px;
+    z-index: 20;
+
+    .popup-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 15px;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.192);
+
+        .popup-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333333;
+        }
+
+        .popup-close {
+            font-size: 15px;
+            font-weight: 600;
+            color: #333333;
+            cursor: pointer;
+        }
+    }
+
+    .popup-actions {
+        display: flex;
+        justify-content: right;
+        gap: 10px;
+        padding: 10px;
+
+        button {
+            font-size: 15px;
+            font-weight: 600;
+            color: #333333;
+            cursor: pointer;
+            padding: 5px 13px;
+            border: none;
+
+            &.button-failed {
+                $color: rgba(253, 0, 0, 0.863);
+                border: 1px solid $color;
+                background-color: transparent;
+                color: $color;
+                transition: all 0.2s;
+
+                &:hover {
+                    border: 1px solid $color;
+                    background-color: $color;
+                    color: white;
+                }
+            }
+
+            &.button-success {
+                $color: rgba(54, 170, 0, 0.863);
+                border: 1px solid $color;
+                background-color: $color;
+                color: white;
+                transition: all 0.2s;
+
+                &:hover {
+                    border: 1px solid $color;
+                    background-color: transparent;
+                    color: $color;
+                }
+            }
+        }
+    }
+}
+
+#pop-up-blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100dvw;
+    height: 100dvh;
+    background: rgba(0, 0, 0, 0.5);
+}

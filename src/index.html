@@ -6,6 +6,7 @@
   <title>Netzler</title>
 </head>
 <body>
+  <div id="pop-up-blur" class="hidden"></div>
   <app-header></app-header>
   <div id="body">
     <canvas id="canvas" width="720" height="420" class="cursor-selection"></canvas>
@@ -28,7 +29,18 @@
     </div>
   </div>
   <app-footer></app-footer>
-  <!--Canvas images-->
   <canvas-images style="display: none;"></canvas-images>
+  <div class="pop-up hidden" id="popup">
+    <div class="popup-header">
+      <div class="popup-title">Router</div>
+      <div class="popup-close popup-close-element">X</div>
+    </div>
+    <div class="popup-body">
+    </div>
+    <div class="popup-actions">
+      <button class="button-failed popup-close-element">Abbrechen</button>
+      <button class="button-success">Bestätigen</button>
+    </div>
+  </div>
 </body>
 </html>

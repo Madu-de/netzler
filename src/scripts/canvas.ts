@@ -3,7 +3,7 @@ import { CanvasCoords } from './../core/canvas/CanvasCoords';
 import { CanvasElement } from "../core/canvas/CanvasElement";
 import { NetzlerElement } from "./classes/NetzlerElement";
 import { NetzlerTool } from './netzlertypes';
-import { selectionTool, moveTool, deleteTool, cableTool } from './NetzlerFunctions';
+import { selectionTool, moveTool, deleteTool, cableTool, togglePopup } from './NetzlerFunctions';
 
 
 // Canvas example
@@ -32,7 +32,15 @@ function switchTool(tool: NetzlerTool): void {
 
 document.querySelectorAll('.toolbar-item').forEach((item: HTMLElement) => {
   item.addEventListener('click', () => {
+    document.querySelectorAll('.toolbar-item').forEach((item: HTMLElement) => item.classList.remove('selected'));
+    item.classList.add('selected');
     switchTool(<NetzlerTool>item.id);
+  });
+});
+
+document.querySelectorAll('.popup-close-element').forEach((item: HTMLElement) => {
+  item.addEventListener('click', () => {
+    togglePopup();
   });
 });
 

@@ -27,11 +27,18 @@ export const moveTool: NetzlerFunction = (mousecoords: CanvasCoords): void => {
   }
 };
 
+export function togglePopup(): void {
+  const popup: HTMLElement = <HTMLElement>document.getElementById('popup');
+  const blur: HTMLElement = <HTMLElement>document.getElementById('pop-up-blur');
+  popup.classList.toggle('hidden');
+  blur.classList.toggle('hidden');
+}
+
 export const selectionTool: NetzlerFunction = (mousecoords: CanvasCoords): void => {
   const elements: NetzlerElement[] = Globals.elements;
   elements.forEach((element: NetzlerElement) => {
     if (element.getCanvasElement().isPointInElement(mousecoords)) {
-      element.selected = true;
+      togglePopup();
     }
   });
 };

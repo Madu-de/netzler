@@ -1,5 +1,3 @@
-@import 'colors';
-
 * {
   margin: 0;
   padding: 0;
@@ -12,15 +10,6 @@ body {
   background-color: #fbf7ef;
 }
 
-.rotate {
-  animation: rotate 2s ease-in-out infinite;
-}
-
-@keyframes rotate {
-  0% {
-    rotate: 0deg;
-  }
-  100% {
-    rotate: 360deg;
-  }
+.hidden {
+  display: none;
 }
