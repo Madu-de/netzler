@@ -12,6 +12,21 @@ ComponentManager.manage([
 
 import './canvas';
 
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-  document.body.innerHTML = 'Dein Gerät wird nicht unterstützt!';
+const isMobile: boolean = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+if (isMobile) {
+  document.getElementById('device-not-supported').classList.toggle('hidden');
+}
+
+handleWidth();
+window.addEventListener('resize', handleWidth);
+
+function handleWidth(): void {
+  const element: HTMLElement = document.getElementById('width-not-supported');
+  if (window.innerWidth <= 720 && !isMobile) {
+    element.classList.remove('hidden');
+  }
+  if (window.innerWidth > 720) {
+    element.classList.add('hidden');
+  }
 }

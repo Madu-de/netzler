@@ -21,30 +21,11 @@ export const moveTool: NetzlerFunction = (mousecoords: CanvasCoords): void => {
         followElement = element;
         if (followElement) {
           Globals.canvasElement.addEventListener('mousemove', followMouse);
-        } 
+        }
       }
     });
   }
 };
-
-export function togglePopup(name: string = '', body: string = '', netzlerElement?: NetzlerElement): void {
-  const popup: HTMLElement = <HTMLElement>document.getElementById('popup');
-  const blur: HTMLElement = <HTMLElement>document.getElementById('pop-up-blur');
-  popup.querySelector('.popup-title').innerHTML = name;
-  popup.querySelector('.popup-body').innerHTML = body;
-  popup.classList.toggle('hidden');
-  blur.classList.toggle('hidden');
-  if (!netzlerElement) return;
-  netzlerElement.settings.forEach((value: string, key: string) => {
-    popup.querySelector('.popup-body').querySelector(`[name=${key}]`).setAttribute('value', value || '');
-  });
-  popup.querySelector('.button-success').addEventListener('click', () => {
-    netzlerElement.settings.clear();
-    popup.querySelector('.popup-body').querySelectorAll('.netzler-popup-item').forEach((item: HTMLElement) => {
-      netzlerElement.settings.set(item.getAttribute('name'), item['value'] || item.getAttribute('value'));
-    });
-  });
-}
 
 export const selectionTool: NetzlerFunction = (mousecoords: CanvasCoords): void => {
   const elements: NetzlerElement[] = Globals.elements;
@@ -118,3 +99,31 @@ export function showError(message: string): void {
     errorElement.classList.toggle('hidden');
   }, 2500);
 }
+
+export function togglePopup(name: string = '', body: string = '', netzlerElement?: NetzlerElement): void {
+  const popup: HTMLElement = <HTMLElement>document.getElementById('popup');
+  const blur: HTMLElement = <HTMLElement>document.getElementById('pop-up-blur');
+  popup.querySelector('.popup-title').innerHTML = name;
+  popup.querySelector('.popup-body').innerHTML = body;
+  popup.classList.toggle('hidden');
+  blur.classList.toggle('hidden');
+  if (!netzlerElement) return;
+  netzlerElement.settings.forEach((value: string, key: string) => {
+    popup.querySelector('.popup-body').querySelector(`[name=${key}]`).setAttribute('value', value || '');
+  });
+  function handleSuccessClick(): void {
+    netzlerElement.settings.clear();
+    popup.querySelector('.popup-body').querySelectorAll('.netzler-popup-item').forEach((item: HTMLElement) => {
+      netzlerElement.settings.set(item.getAttribute('name'), item['value'] || item.getAttribute('value'));
+    });
+    ((): void => {
+      togglePopup();
+    })();
+  }
+  popup.querySelector('.button-success').addEventListener('click', () => {
+    handleSuccessClick();
+  }, {
+    once: true,
+  });
+}
+
