@@ -35,12 +35,14 @@ export function togglePopup(name: string = '', body: string = '', netzlerElement
   popup.classList.toggle('hidden');
   blur.classList.toggle('hidden');
   if (!netzlerElement) return;
+  netzlerElement.settings.forEach((value: string, key: string) => {
+    popup.querySelector('.popup-body').querySelector(`[name=${key}]`).setAttribute('value', value || '');
+  });
   popup.querySelector('.button-success').addEventListener('click', () => {
     netzlerElement.settings.clear();
     popup.querySelector('.popup-body').querySelectorAll('.netzler-popup-item').forEach((item: HTMLElement) => {
       netzlerElement.settings.set(item.getAttribute('name'), item['value'] || item.getAttribute('value'));
     });
-    console.log(netzlerElement.settings);
   });
 }
 
