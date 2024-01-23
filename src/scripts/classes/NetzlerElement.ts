@@ -25,6 +25,9 @@ export class NetzlerElement {
     if (this.connections.some((nconnection: NetzlerConnection) => nconnection.element.getCanvasElement().id === connection.getCanvasElement().id)) {
       throw new Error('Connection already exists');
     }
+    if (this.canvasElement.id === connection.canvasElement.id) {
+      throw new Error('Cannot connect to self');
+    }
     const drawedLine: CanvasLine = line || Globals.canvas.addLineBetweenElements(this.canvasElement, connection.getCanvasElement(), 7, 'black');
     this.connections.push({ element: connection, line: drawedLine });
     if (!line) connection.createConnection(this, drawedLine);

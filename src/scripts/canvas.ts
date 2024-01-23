@@ -3,8 +3,7 @@ import { CanvasCoords } from './../core/canvas/CanvasCoords';
 import { CanvasElement } from "../core/canvas/CanvasElement";
 import { NetzlerElement } from "./classes/NetzlerElement";
 import { NetzlerTool } from './netzlertypes';
-import { selectionTool, moveTool, deleteTool, cableTool, togglePopup } from './NetzlerFunctions';
-
+import { selectionTool, moveTool, deleteTool, cableTool, togglePopup, switchTool } from './NetzlerFunctions';
 
 // Canvas example
 const pcCanvasElement: CanvasElement = new CanvasElement(100, 100, <HTMLImageElement>document.getElementById('pcpng'), 100, 100);
@@ -18,17 +17,7 @@ Globals.canvas.addElement(pc2.getCanvasElement());
 Globals.canvas.addElement(pc3.getCanvasElement());
 Globals.elements = [pc, pc2, pc3];
 Globals.canvas.render();
-
-function switchTool(tool: NetzlerTool): void {
-  Globals.selectedTool = tool;
-  const toolCursorImages: Map<NetzlerTool, HTMLImageElement> = new Map<NetzlerTool, HTMLImageElement>([
-    ['selection', <HTMLImageElement>document.getElementById('selection-image')],
-    ['move', <HTMLImageElement>document.getElementById('move-image')],
-    ['delete', <HTMLImageElement>document.getElementById('delete-image')],
-    ['cable', <HTMLImageElement>document.getElementById('cable-image')],
-  ]);
-  Globals.canvasElement.style.cursor = `url('${toolCursorImages.get(tool).src}') 15 15, auto`;
-}
+switchTool('selection');
 
 document.querySelectorAll('.toolbar-item').forEach((item: HTMLElement) => {
   item.addEventListener('click', () => {

@@ -3,7 +3,7 @@ import { CanvasElement } from "../core/canvas/CanvasElement";
 import { NetzlerElement } from "./classes/NetzlerElement";
 import { Globals } from "./globals";
 import { CanvasLine } from "../core/canvas/CanvasLine";
-import { NetzlerConnection } from "./netzlertypes";
+import { NetzlerConnection, NetzlerTool } from "./netzlertypes";
 
 export type NetzlerFunction = (mousecoords: CanvasCoords) => void;
 
@@ -67,8 +67,13 @@ export const cableTool: NetzlerFunction = (mousecoords: CanvasCoords): void => {
     const canvasElement: CanvasElement = element.getCanvasElement();
     if (canvasElement.isPointInElement(mousecoords)) {
       if (selectedElement) {
-        selectedElement.createConnection(element);
-        selectedElement = undefined;
+        try {
+          selectedElement.createConnection(element);
+        } catch (error) {
+          console.error(error.message, '- Selected element will be removed');
+        } finally {
+          selectedElement = undefined;
+        }
         return;
       }
       selectedElement = element;
@@ -80,4 +85,15 @@ function followMouse(ev: MouseEvent): void {
   const mousecoords: CanvasCoords = Globals.canvas.getCanvasMouseCoords(ev);
   followElement.getCoords().setX(mousecoords.getX() - (followElement.getWidth() / 2));
   followElement.getCoords().setY(mousecoords.getY() - (followElement.getHeight() / 2));
+}
+
+export function switchTool(tool: NetzlerTool): void {
+  Globals.selectedTool = tool;
+  const toolCursorImages: Map<NetzlerTool, HTMLImageElement> = new Map<NetzlerTool, HTMLImageElement>([
+    ['selection', <HTMLImageElement>document.getElementById('selection-image')],
+    ['move', <HTMLImageElement>document.getElementById('move-image')],
+    ['delete', <HTMLImageElement>document.getElementById('delete-image')],
+    ['cable', <HTMLImageElement>document.getElementById('cable-image')],
+  ]);
+  Globals.canvasElement.style.cursor = `url('${toolCursorImages.get(tool).src}') 15 15, auto`;
 }
