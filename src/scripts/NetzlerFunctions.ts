@@ -121,3 +121,7 @@ export function handleSuccessClick(netzlerElement: NetzlerElement, popup: HTMLEl
   });
   togglePopup();
 }
+
+export function setNewCharacterMessage(message: string): void {
+  document.querySelector('#character-message-box').innerHTML = message || document.querySelector('#character-message-box').innerHTML;
+}

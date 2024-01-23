@@ -35,6 +35,10 @@ export class NetzlerElement {
     return [...this.connections];
   }
 
+  clearConnections(): void {
+    this.connections = [];
+  }
+
   popup(): void {
     togglePopup(this.netzlerPopup.getName(), this.netzlerPopup.getBody(), this);
   }

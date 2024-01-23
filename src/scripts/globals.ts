@@ -1,5 +1,6 @@
 import { Canvas } from "../core/canvas/Canvas";
 import { NetzlerElement } from "./classes/NetzlerElement";
+import { NetzlerLevel } from "./classes/NetzlerLevel";
 import { NetzlerTool } from "./netzlertypes";
 
 export class Globals {
@@ -9,4 +10,5 @@ export class Globals {
   static elements: NetzlerElement[] = [];
 
   static currentPopupNetzlerElement: NetzlerElement;
+  static currentLevel: NetzlerLevel;
 }

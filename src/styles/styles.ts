@@ -4,3 +4,4 @@ import "./pop-up.scss";
 import "./scrollbar.scss";
 import "./template.scss";
 import "./error.scss";
+import "./character.scss";
