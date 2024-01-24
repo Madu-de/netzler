@@ -3,7 +3,7 @@ import { CanvasCoords } from './../core/canvas/CanvasCoords';
 import { CanvasElement } from "../core/canvas/CanvasElement";
 import { NetzlerElement } from "./classes/NetzlerElement";
 import { NetzlerTool } from './netzlertypes';
-import { selectionTool, moveTool, deleteTool, cableTool, togglePopup, switchTool, setNewCharacterMessage } from './NetzlerFunctions';
+import { selectionTool, moveTool, deleteTool, cableTool, togglePopup, switchTool } from './NetzlerFunctions';
 import { NetzlerPopup } from './classes/NetzlerPopup';
 import pcTemplate from '../popup-templates/pc-template.html';
 import { NetzlerLevel } from './classes/NetzlerLevel';
@@ -42,12 +42,20 @@ document.querySelector('.button-success').addEventListener('click', () => {
   togglePopup();
 });
 
-Globals.currentLevel = new NetzlerLevel(['Hallo! [...]', 'Dies ist ein Beispiellevel für [...]', 'Netzler!'], [pc, pc2, pc3], []);
+Globals.currentLevel = new NetzlerLevel([{
+  message: 'Moin! Ich bin die Ente!'
+}, { 
+  message: 'Jetzt zeige ich dir die Elemente', 
+  action: (): void => { 
+    Globals.currentLevel.renderElements(); 
+  } 
+}, {
+  message: 'Hier könnte Ihre Werbung stehen'
+}], [pc, pc2, pc3], []);
 Globals.currentLevel.init();
 
 document.querySelector('#character-message-box').addEventListener('click', () => {
-  setNewCharacterMessage(Globals.currentLevel.nextMessage());
-  Globals.currentLevel.renderElements();
+  Globals.currentLevel.triggerNewAction();
 });
 
 Globals.canvasElement.addEventListener('click', (ev: MouseEvent) => {
