@@ -3,7 +3,6 @@ import { CanvasCoords } from './../core/canvas/CanvasCoords';
 import { NetzlerTool } from './netzlertypes';
 import { selectionTool, moveTool, deleteTool, cableTool, togglePopup, switchTool } from './NetzlerFunctions';
 
-// Canvas example
 import './levels/level1';
 Globals.canvas.render();
 switchTool('selection');
