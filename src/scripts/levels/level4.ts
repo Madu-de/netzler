@@ -43,7 +43,7 @@ export const level4: NetzlerLevel = new NetzlerLevel([{
   switchport mode access<br>
   switchport access vlan <b><i>nummer des vlans</b></i>`,
 }, {
-  message: `Der erste PC, den du mit dem Switch verbindest, wird an dem Interface/Port <b>f0/1</b> eingesteckt und soll dem VLAN <b>Minecraft</b> zugeordnet werden. Der zweite PC, den du mit dem Switch verbindest, wird an dem Interface/Port <b>f0/2</b> eingesteckt und soll dem VLAN <b>Counter-Stricke</b> zugeordnet werden.<br>
+  message: `Der erste PC, den du mit dem Switch verbindest, wird an dem Interface/Port <b>f0/1</b> eingesteckt und soll dem VLAN <b>Minecraft</b> zugeordnet werden. Der zweite PC, den du mit dem Switch verbindest, wird an dem Interface/Port <b>f0/2</b> eingesteckt und soll dem VLAN <b>Counter-Strike</b> zugeordnet werden.<br>
   Zur Erinnerung, die Befehle müssen in dieser Reihenfolge eingegeben werden:<br>
   enable<br>
   configure terminal<br>
