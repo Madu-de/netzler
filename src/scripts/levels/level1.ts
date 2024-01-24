@@ -22,7 +22,7 @@ pcSolution.createConnection(switchElSolution, undefined, false);
 pc2Solution.createConnection(switchElSolution, undefined, false);
 
 Globals.currentLevel = new NetzlerLevel([{
-  message: 'Hallo *Quark*! Willkommen bei Netzler, ich bin Wilmar vom Großunternehmen IT-Service Marvin und werde dir, unserem Praktikanten, helfen verschiedene Netze aufzubauen!'
+  message: 'Hallo *Quak*! Willkommen bei Netzler, ich bin Wilmar vom Großunternehmen IT-Service Marvin und werde dir, unserem Praktikanten, helfen verschiedene Netze aufzubauen!'
 }, { 
   message: 'Lass uns doch als erstes zwei PCs über einen Switch miteinander verbinden. Um Objekte miteinander zu verbinden brauchst du das <b>Kabel Werkzeug</b> aus der Toolbar. Mit dem <b>Löschen Werkzeug</b> kannst du Kabel entfernen und mit dem <b>Bewegen Werkzeug</b> kannst du Objekte … bewegen.', 
   action: (): void => { 

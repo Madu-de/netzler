@@ -4,6 +4,7 @@ import { NetzlerLevel } from '../classes/NetzlerLevel';
 import { Globals } from "../globals";
 import switchTemplate from "../../popup-templates/switch-interface.html";
 import { NetzlerPopup } from '../classes/NetzlerPopup';
+import { level5 } from './level5';
 
 const pcCanvasElement: CanvasElement = new CanvasElement(100, 50, <HTMLImageElement>document.getElementById('pcpng'), 100, 100);
 const pc: NetzlerElement = new NetzlerElement(pcCanvasElement, new NetzlerPopup('PC', 'Keine Konfiguration in diesem Level notwendig!'));
@@ -29,7 +30,7 @@ switchElSolution.settings.set('interface2', '5');
 switchElSolution.settings.set('switchport2', '6');
 
 export const level4: NetzlerLevel = new NetzlerLevel([{
-  message: 'Grandios *Quark*! Es gibt jetzt auf dem Switch ein Netz für die Minecraft Spieler und ein Netz für die Couterstrike Spieler. Damit diese nicht auf das Netz des Anderen zugreifen können.'
+  message: 'Grandios *Quak*! Es gibt jetzt auf dem Switch ein Netz für die Minecraft Spieler und ein Netz für die Couterstrike Spieler. Damit diese nicht auf das Netz des Anderen zugreifen können.'
 }, {
   message: 'Aber woher weiß der Switch denn jetzt welcher PC zu welchem Netz gehört?',
 },{
@@ -57,5 +58,7 @@ export const level4: NetzlerLevel = new NetzlerLevel([{
   pc2,
   switchEl
 ], [
+  pcSolution,
+  pc2Solution,
   switchElSolution
-]);
+], level5);

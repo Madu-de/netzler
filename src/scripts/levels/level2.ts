@@ -17,7 +17,7 @@ switchElSolution.settings.set('vlan', '3');
 switchElSolution.settings.set('name', '4');
 
 export const level2: NetzlerLevel = new NetzlerLevel([{
-  message: 'Sehr gut *Quark*! Jetzt wollen wir mal das Netz einer richtige LAN-Party aufbauen, um zusammen verschiedene Spiele zu spielen.'
+  message: 'Sehr gut *Quak*! Wir wollen demnächst ein Netz für eine richtige LAN-Party aufbauen, um zusammen verschiedene Spiele zu spielen. Lass uns doch zuerst anschauen, wie wir einen Switch konfigurieren können, um dann das Netzwerk aufzubauen!'
 }, {
   message: 'Wir werden Subnetze und VLANs für jedes einzelne Spiel, welches auf einem internen Server gehostet wird, einrichten. So können wir die Kommunikation zwischen 2 PCs kontrollieren, sodass diese nicht miteinander kommunizieren können, wenn sie jeweils für andere Spiele vorgesehen sind. Zudem sorgt dies auch für weniger Netzwerklast, sollte ein PC jeden anderen PC im gleichen (Sub-)Netz eine Nachricht senden wollen (Broadcast), da weniger PCs in einem Subnetz vorhanden sind, als im gesamten Netz.',
 }, {

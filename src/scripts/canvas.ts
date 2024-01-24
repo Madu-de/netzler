@@ -37,6 +37,13 @@ document.querySelector('#character-message-box').addEventListener('click', () =>
   }
 });
 
+// Cheats
+document.body.addEventListener('keydown', (e: KeyboardEvent) => {
+  if (e.shiftKey && e.ctrlKey && e.altKey && e.key === 'S') {
+    Globals.currentLevel.switchToNextLevel();
+  }
+});
+
 Globals.canvasElement.addEventListener('click', (ev: MouseEvent) => {
   const mousecoords: CanvasCoords = Globals.canvas.getCanvasMouseCoords(ev);
   const toolMethods: Map<NetzlerTool, Function> = new Map<NetzlerTool, Function>([
