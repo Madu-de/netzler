@@ -1,45 +1,40 @@
 import { CanvasElement } from "../../core/canvas/CanvasElement";
 import { NetzlerElement } from "../classes/NetzlerElement";
 import { NetzlerPopup } from '../classes/NetzlerPopup';
-import pcTemplate from '../../popup-templates/pc-template.html';
 import { NetzlerLevel } from '../classes/NetzlerLevel';
 import { Globals } from "../globals";
+import { level2 } from "./level2";
 
-const pcCanvasElement: CanvasElement = new CanvasElement(100, 100, <HTMLImageElement>document.getElementById('pcpng'), 100, 100);
-const pc: NetzlerElement = new NetzlerElement(pcCanvasElement, new NetzlerPopup('PC', pcTemplate));
+const pcCanvasElement: CanvasElement = new CanvasElement(100, 50, <HTMLImageElement>document.getElementById('pcpng'), 100, 100);
+const pc: NetzlerElement = new NetzlerElement(pcCanvasElement, new NetzlerPopup('PC', 'Keine Konfiguration in diesem Level notwendig!'));
 pc.setMaxConnections(1);
-const pcCanvasElement2: CanvasElement = new CanvasElement(200, 200, <HTMLImageElement>document.getElementById('laptoppng'), 80, 80);
-const pc2: NetzlerElement = new NetzlerElement(pcCanvasElement2, new NetzlerPopup('Laptop', 'test123'));
+const pcCanvasElement2: CanvasElement = new CanvasElement(100, 250, <HTMLImageElement>document.getElementById('laptoppng'), 80, 80);
+const pc2: NetzlerElement = new NetzlerElement(pcCanvasElement2, new NetzlerPopup('Laptop', 'Keine Konfiguration in diesem Level notwendig!'));
 pc2.setMaxConnections(1);
-const pcCanvasElement3: CanvasElement = new CanvasElement(500, 250, <HTMLImageElement>document.getElementById('switchpng'), 120, 120);
-const pc3: NetzlerElement = new NetzlerElement(pcCanvasElement3, new NetzlerPopup('Switch', 'test123'));
+const switchCanvasElement: CanvasElement = new CanvasElement(500, 150, <HTMLImageElement>document.getElementById('switchpng'), 120, 120);
+const switchEl: NetzlerElement = new NetzlerElement(switchCanvasElement, new NetzlerPopup('Switch', 'Keine Konfiguration in diesem Level notwendig!'));
 
-const pcSolution: NetzlerElement = new NetzlerElement(pcCanvasElement, new NetzlerPopup('PC', pcTemplate), pcCanvasElement.id);
-const pc2Solution: NetzlerElement = new NetzlerElement(pcCanvasElement2, new NetzlerPopup('Laptop', 'test123'), pcCanvasElement2.id);
-const pc3Solution: NetzlerElement = new NetzlerElement(pcCanvasElement3, new NetzlerPopup('Switch', 'test123'), pcCanvasElement3.id);
+const pcSolution: NetzlerElement = new NetzlerElement(pcCanvasElement, new NetzlerPopup('PC', 'Keine Konfiguration in diesem Level notwendig!'), pcCanvasElement.id);
+const pc2Solution: NetzlerElement = new NetzlerElement(pcCanvasElement2, new NetzlerPopup('Laptop', 'Keine Konfiguration in diesem Level notwendig!'), pcCanvasElement2.id);
+const switchElSolution: NetzlerElement = new NetzlerElement(switchCanvasElement, new NetzlerPopup('Switch', 'Keine Konfiguration in diesem Level notwendig!'), switchCanvasElement.id);
 
-pcSolution.createConnection(pc3Solution, undefined, false);
-pc3Solution.createConnection(pc2Solution, undefined, false);
+pcSolution.createConnection(switchElSolution, undefined, false);
+pc2Solution.createConnection(switchElSolution, undefined, false);
 
 Globals.currentLevel = new NetzlerLevel([{
-  message: 'Moin! Ich bin die Ente!'
+  message: 'Hallo *Quark*! Willkommen bei Netzler, ich bin Wilmar vom Großunternehmen IT-Service Marvin und werde dir, unserem Praktikanten, helfen verschiedene Netze aufzubauen!'
 }, { 
-  message: 'Jetzt zeige ich dir die Elemente', 
+  message: 'Lass uns doch als erstes zwei PCs über einen Switch miteinander verbinden. Um Objekte miteinander zu verbinden brauchst du das <b>Kabel Werkzeug</b> aus der Toolbar. Mit dem <b>Löschen Werkzeug</b> kannst du Kabel entfernen und mit dem <b>Bewegen Werkzeug</b> kannst du Objekte … bewegen.', 
   action: (): void => { 
-    Globals.currentLevel.renderElements(); 
-  } 
-}, {
-  message: 'Hier könnte Ihre Werbung stehen',
-  action: (): void => {
-    console.log(Globals.currentLevel.isLevelFinished());
+    Globals.currentLevel.renderElements();
   }
 }], [
   pc, 
   pc2, 
-  pc3
+  switchEl
 ], [
   pcSolution, 
   pc2Solution,
-  pc3Solution
-]);
+  switchElSolution
+], level2);
 Globals.currentLevel.init();

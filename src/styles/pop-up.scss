@@ -94,3 +94,33 @@
     height: 100dvh;
     background: rgba(0, 0, 0, 0.5);
 }
+
+
+.cmd-sequence-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #fbf7ef;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    
+    .cmd-sequence-item-title {
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+        font-size: 20px;
+    }
+
+    select {
+        font-size: 20px;
+        width: 80px;
+        background-color: transparent;
+        border: none;
+
+        &:focus {
+            border: none;
+            outline: none;
+        }
+    }
+}

@@ -35,6 +35,7 @@ export class NetzlerLevel {
   }
 
   switchToNextLevel(): void {
+    if (!this.nextLevel) throw new Error('Das Level wurde fertiggestellt, verlinkt jedoch auf kein neues!');
     Globals.currentLevel = this.nextLevel;
     Globals.currentLevel.init();
   }

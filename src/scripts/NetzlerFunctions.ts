@@ -109,7 +109,7 @@ export function togglePopup(name: string = '', body: string = '', netzlerElement
   blur.classList.toggle('hidden');
   if (!netzlerElement) return;
   netzlerElement.settings.forEach((value: string, key: string) => {
-    popup.querySelector('.popup-body').querySelector(`[name=${key}]`).setAttribute('value', value || '');
+    popup.querySelector('.popup-body').querySelector(`[name=${key}]`)["value"] = value || '';
   });
   Globals.currentPopupNetzlerElement = netzlerElement;
 }
