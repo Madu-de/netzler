@@ -10,6 +10,11 @@ switchTool('selection');
 document.querySelectorAll('.toolbar-item').forEach((item: HTMLElement) => {
   item.addEventListener('click', () => {
     document.querySelectorAll('.toolbar-item').forEach((item: HTMLElement) => item.classList.remove('selected'));
+    if (item.id == 'reset') {
+      if (!confirm('Möchtest du wirklich zum letzten Speicherpunkt zurückkehren? Alle bis dahin getätigten Schritte, gehen verloren!')) return;
+      Globals.currentLevel.reset();
+      return;
+    }
     item.classList.add('selected');
     switchTool(<NetzlerTool>item.id);
   });

@@ -24,10 +24,12 @@ pc2Solution.createConnection(switchElSolution, undefined, false);
 
 switchElSolution.settings.set('enable', '1');
 switchElSolution.settings.set('configure', '2');
-switchElSolution.settings.set('interface1', '3');
-switchElSolution.settings.set('switchport1', '4');
-switchElSolution.settings.set('interface2', '5');
-switchElSolution.settings.set('switchport2', '6');
+switchElSolution.settings.set('interface1', '1');
+switchElSolution.settings.set('switchport1-1', '2');
+switchElSolution.settings.set('switchport1-2', '3');
+switchElSolution.settings.set('interface2', '1');
+switchElSolution.settings.set('switchport2-1', '2');
+switchElSolution.settings.set('switchport2-2', '3');
 
 export const level4: NetzlerLevel = new NetzlerLevel([{
   message: 'Grandios *Quak*! Es gibt jetzt auf dem Switch ein Netz für die Minecraft Spieler und ein Netz für die Couterstrike Spieler. Damit diese nicht auf das Netz des Anderen zugreifen können.'

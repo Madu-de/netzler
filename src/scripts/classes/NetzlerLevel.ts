@@ -6,13 +6,17 @@ import _ from 'lodash';
 
 export class NetzlerLevel {
   private netzlerActions: NetzlerLevelAction[];
+  private netzlerActionsBackup: NetzlerLevelAction[];
   private nextLevel: NetzlerLevel | undefined;
   private elements: NetzlerElement[];
+  private elementsBackup: NetzlerElement[];
   private elementsSolution: NetzlerElement[];
 
   constructor(netzlerActions: NetzlerLevelAction[], elements: NetzlerElement[], elementsSolution: NetzlerElement[], nextLevel?: NetzlerLevel) {
     this.netzlerActions = netzlerActions;
+    this.netzlerActionsBackup = [ ...this.netzlerActions ];
     this.elements = elements;
+    this.elementsBackup = [ ...this.elements ];
     this.elementsSolution = elementsSolution;
     this.nextLevel = nextLevel;
   }
@@ -63,6 +67,14 @@ export class NetzlerLevel {
     });
   }
 
+  reset(): void {
+    this.elements = [ ...this.elementsBackup ];
+    this.netzlerActions = [ ...this.netzlerActionsBackup ];
+    Globals.canvas.removeAllElements();
+    Globals.canvas.removeAllLines();
+    this.init();
+  }
+  
   init(): void {
     this.triggerNewAction();
   }
