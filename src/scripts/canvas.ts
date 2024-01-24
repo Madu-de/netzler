@@ -1,22 +1,10 @@
 import { Globals } from './globals';
 import { CanvasCoords } from './../core/canvas/CanvasCoords';
-import { CanvasElement } from "../core/canvas/CanvasElement";
-import { NetzlerElement } from "./classes/NetzlerElement";
 import { NetzlerTool } from './netzlertypes';
 import { selectionTool, moveTool, deleteTool, cableTool, togglePopup, switchTool } from './NetzlerFunctions';
-import { NetzlerPopup } from './classes/NetzlerPopup';
-import pcTemplate from '../popup-templates/pc-template.html';
-import { NetzlerLevel } from './classes/NetzlerLevel';
 
 // Canvas example
-const pcCanvasElement: CanvasElement = new CanvasElement(100, 100, <HTMLImageElement>document.getElementById('pcpng'), 100, 100);
-const pc: NetzlerElement = new NetzlerElement(pcCanvasElement, new NetzlerPopup('PC', pcTemplate));
-pc.setMaxConnections(1);
-const pcCanvasElement2: CanvasElement = new CanvasElement(200, 200, <HTMLImageElement>document.getElementById('laptoppng'), 80, 80);
-const pc2: NetzlerElement = new NetzlerElement(pcCanvasElement2, new NetzlerPopup('Laptop', 'test123'));
-pc2.setMaxConnections(1);
-const pcCanvasElement3: CanvasElement = new CanvasElement(500, 250, <HTMLImageElement>document.getElementById('switchpng'), 120, 120);
-const pc3: NetzlerElement = new NetzlerElement(pcCanvasElement3, new NetzlerPopup('Switch', 'test123'));
+import './levels/level1';
 Globals.canvas.render();
 switchTool('selection');
 
@@ -41,18 +29,6 @@ document.querySelector('.button-success').addEventListener('click', () => {
   Globals.currentPopupNetzlerElement = undefined;
   togglePopup();
 });
-
-Globals.currentLevel = new NetzlerLevel([{
-  message: 'Moin! Ich bin die Ente!'
-}, { 
-  message: 'Jetzt zeige ich dir die Elemente', 
-  action: (): void => { 
-    Globals.currentLevel.renderElements(); 
-  } 
-}, {
-  message: 'Hier könnte Ihre Werbung stehen'
-}], [pc, pc2, pc3], []);
-Globals.currentLevel.init();
 
 document.querySelector('#character-message-box').addEventListener('click', () => {
   Globals.currentLevel.triggerNewAction();

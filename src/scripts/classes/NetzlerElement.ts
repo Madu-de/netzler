@@ -13,10 +13,12 @@ export class NetzlerElement {
   selected: boolean = false;
   settings: Map<string, string> = new Map<string, string>();
 
-  constructor(canvasElement: CanvasElement, netzlerPopup: NetzlerPopup) {
+
+  constructor(canvasElement: CanvasElement, netzlerPopup: NetzlerPopup, id?: number) {
     this.canvasElement = canvasElement;
     this.connections = [];
     this.netzlerPopup = netzlerPopup;
+    this.canvasElement.id = id || this.canvasElement.id;
   }
 
   getCanvasElement(): CanvasElement {
@@ -43,7 +45,7 @@ export class NetzlerElement {
     togglePopup(this.netzlerPopup.getName(), this.netzlerPopup.getBody(), this);
   }
 
-  createConnection(connection: NetzlerElement, line?: CanvasLine): void {
+  createConnection(connection: NetzlerElement, line?: CanvasLine, draw: boolean = true, secoundIntern: boolean = false): void {
     if (this.connections.some((nconnection: NetzlerConnection) => nconnection.element.getCanvasElement().id === connection.getCanvasElement().id)) {
       throw new Error('Diese Verbindung existiert bereits!');
     }
@@ -53,9 +55,9 @@ export class NetzlerElement {
     if (!line && (this.getConnectionsCopy().length === this.getMaxConnections() || connection.getConnectionsCopy().length === connection.getMaxConnections())) {
       throw new Error('Keine Ports mehr verfügbar!');
     }
-    const drawedLine: CanvasLine = line || Globals.canvas.addLineBetweenElements(this.canvasElement, connection.getCanvasElement(), 7, 'black');
+    const drawedLine: CanvasLine = line || (draw && !secoundIntern ? Globals.canvas.addLineBetweenElements(this.canvasElement, connection.getCanvasElement(), 7, 'black') : undefined);
     this.connections.push({ element: connection, line: drawedLine });
-    if (!line) connection.createConnection(this, drawedLine);
+    if (!line && !secoundIntern) connection.createConnection(this, drawedLine, !draw, true);
   }
 
   removeConnection(connection: NetzlerElement, internal?: boolean): void {

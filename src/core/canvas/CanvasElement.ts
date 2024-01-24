@@ -4,7 +4,7 @@ import { IRenderableCanvasElement } from "./IRenderableCanvasElement";
 export class CanvasElement implements IRenderableCanvasElement {
   priority: number = 1;
   public static idCount: number = 0;
-  private set id(value: number) {
+  set id(value: number) {
     this._id = value;
   }
   public get id(): number {
