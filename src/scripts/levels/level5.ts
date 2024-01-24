@@ -24,9 +24,11 @@ laptop2.setMaxConnections(1);
 
 const switchCanvasElement: CanvasElement = new CanvasElement(350, 300, <HTMLImageElement>document.getElementById('switchpng'), 120, 120);
 const switchEl: NetzlerElement = new NetzlerElement(switchCanvasElement, new NetzlerPopup('Switch', switchTemplate));
+switchEl.setMaxConnections(3);
 
 const switch2CanvasElement: CanvasElement = new CanvasElement(350, 50, <HTMLImageElement>document.getElementById('switchpng'), 120, 120);
 const switch2El: NetzlerElement = new NetzlerElement(switch2CanvasElement, new NetzlerPopup('Switch', switchTemplate2));
+switch2El.setMaxConnections(3);
 
 const pcSolution: NetzlerElement = new NetzlerElement(pcCanvasElement, new NetzlerPopup('PC', 'Keine Konfiguration in diesem Level notwendig!'), pcCanvasElement.id);
 const pc2Solution: NetzlerElement = new NetzlerElement(pcCanvasElement2, new NetzlerPopup('PC', 'Keine Konfiguration in diesem Level notwendig!'), pcCanvasElement2.id);
