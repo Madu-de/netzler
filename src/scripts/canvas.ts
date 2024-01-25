@@ -1,9 +1,10 @@
 import { Globals } from './globals';
 import { CanvasCoords } from './../core/canvas/CanvasCoords';
 import { NetzlerTool } from './netzlertypes';
-import { selectionTool, moveTool, deleteTool, cableTool, togglePopup, switchTool, showError } from './NetzlerFunctions';
+import { selectionTool, moveTool, deleteTool, cableTool, togglePopup, switchTool, showError, showSuccess } from './NetzlerFunctions';
 
 import './levels/level1';
+import { level8 } from './levels/level8';
 Globals.canvas.render();
 switchTool('selection');
 
@@ -45,8 +46,19 @@ document.querySelector('#character-message-box').addEventListener('click', () =>
 
 // Cheats
 document.body.addEventListener('keydown', (e: KeyboardEvent) => {
+  // S = skip
   if (e.shiftKey && e.ctrlKey && e.altKey && e.key === 'S') {
+    Globals.cheated = true;
     Globals.currentLevel.switchToNextLevel();
+    showSuccess('Cheat ausgeführt: Level überspringen');
+  }
+  // C = Certificate
+  if (e.shiftKey && e.ctrlKey && e.altKey && e.metaKey && e.key === 'C') {
+    Globals.cheated = true;
+    Globals.username = prompt('Wie soll der Name des Spielers lauten?');
+    Globals.currentLevel = level8;
+    Globals.currentLevel.init();
+    showSuccess('Cheat ausgeführt: Zertifikat');
   }
 });
 

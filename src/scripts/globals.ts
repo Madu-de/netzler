@@ -15,4 +15,5 @@ export class Globals {
   static confettiCanvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById('confetticanvas');
   static finished: boolean = false;
   static username: string = 'Max Mustermann';
+  static cheated: boolean = false;
 }

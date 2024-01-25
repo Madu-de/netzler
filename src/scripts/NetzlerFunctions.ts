@@ -96,10 +96,19 @@ export function switchTool(tool: NetzlerTool): void {
 
 export function showError(message: string): void {
   const errorElement: HTMLElement = <HTMLElement>document.getElementById('error-notification');
-  errorElement.innerHTML = message;
-  errorElement.classList.toggle('hidden');
+  showNotification(errorElement, message);
+}
+
+export function showSuccess(message: string): void {
+  const successElement: HTMLElement = <HTMLElement>document.getElementById('success-notification');
+  showNotification(successElement, message);
+}
+
+function showNotification(element: HTMLElement, message: string): void {
+  element.innerHTML = message;
+  element.classList.toggle('hidden');
   setTimeout(() => {
-    errorElement.classList.toggle('hidden');
+    element.classList.toggle('hidden');
   }, 2500);
 }
 
@@ -141,8 +150,8 @@ export function drawCertificate(): void {
   ctx.font = "35px 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
   ctx.fillText(`${Globals.username}`, 50, 180 + 35 + abstand);
   ctx.font = "30px 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
-  ctx.fillText(`das Netzwerktechnik Lernspiel "Netzler"`, 50, 180 + 35 + abstand + 35 + abstand);
-  ctx.fillText(`durchgespielt hat!`, 50, 180 + 35 + abstand + 35 + abstand + 30 + abstand);
+  ctx.fillText(`das Netzwerktechnik Lernspiel "Netzler"${Globals.cheated ? ' mit' : ''}`, 50, 180 + 35 + abstand + 35 + abstand);
+  ctx.fillText(`${Globals.cheated ? 'Cheats ' : ''}durchgespielt hat!`, 50, 180 + 35 + abstand + 35 + abstand + 30 + abstand);
   ctx.font = "80px 'Ink Free', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
   ctx.fillText(`Netzler`, 420, 380);
 }

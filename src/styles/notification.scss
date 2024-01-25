@@ -1,0 +1,32 @@
+.notification {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    translate: -50%;
+    height: 50px;
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 0px 15px;
+    animation: fade 0.25s ease-in-out;
+}
+
+#error-notification {
+    background-color: rgba(255, 0, 0, 0.733);
+}
+
+#success-notification {
+    background-color: rgb(68, 245, 68);
+}
+
+@keyframes fade {
+    0% {
+        translate: -50% -30px;
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
