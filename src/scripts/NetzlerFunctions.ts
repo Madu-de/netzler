@@ -106,9 +106,9 @@ export function showSuccess(message: string): void {
 
 function showNotification(element: HTMLElement, message: string): void {
   element.innerHTML = message;
-  element.classList.toggle('hidden');
+  element.classList.remove('hidden');
   setTimeout(() => {
-    element.classList.toggle('hidden');
+    element.classList.add('hidden');
   }, 2500);
 }
 
