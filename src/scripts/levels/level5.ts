@@ -68,12 +68,12 @@ export const level5: NetzlerLevel = new NetzlerLevel([{
   message: '"Trunk"-Interfaces sind nämlich dazu da, Anfragen mit verschiedenen VLAN-IDs zu verschicken. Damit der Empfänger, der an diesem "Trunk"-Interface angeschlossen ist, weiß, von welchem VLAN diese Anfrage kommt, wird hier das vorhin genannte VLAN-Tag mitgegeben.',
 }, {
   message: `Lass uns testweise einmal Trunks einrichten! Die Befehle sind ähnlich zu den Access-Interface Befehlen:<br>
-    enable<br>
-    configure terminal<br>
-    interface <b><i>interface</b></i><br>
-    switchport mode trunk<br>
-    switchport trunk allowed vlan <b><i>vlanid1,vlanid2,vlanid3,...</b></i><br><br>
-    Ich kümmere mich um die access Ports! Verbinde bitte die 2 Laptops mit dem oberen Switch und die 2 PCs mit dem unteren Switch. Verbinde dann die Switches miteinander und konfiguriere bei beiden Switches die Trunks. Bei beiden ist hierfür das Interface <b>g0/1</b> vorgesehen.
+    > enable<br>
+    > configure terminal<br>
+    > interface <b><i>interface</b></i><br>
+    > switchport mode trunk<br>
+    > switchport trunk allowed vlan <b><i>vlanid1,vlanid2,vlanid3,...</b></i><br><br>
+    > Ich kümmere mich um die access Ports! Verbinde bitte die 2 Laptops mit dem oberen Switch und die 2 PCs mit dem unteren Switch. Verbinde dann die Switches miteinander und konfiguriere bei beiden Switches die Trunks. Bei beiden ist hierfür das Interface <b>g0/1</b> vorgesehen.
   `,
   action: (): void => { 
     Globals.currentLevel.renderElements();

@@ -39,19 +39,19 @@ export const level4: NetzlerLevel = new NetzlerLevel([{
   message: 'Das teilst du dem Switch mit indem du die Ports den jeweiligen VLANS zuweist.',
 },{
   message: `Dafür klickst du wieder den Switch an. Die Befehlsreihenfolge zum zuweisen der Ports zu den VLANs ist:<br>
-  enable<br>
-  configure terminal<br>
-  interface <b><i>interface</b></i><br>
-  switchport mode access<br>
-  switchport access vlan <b><i>nummer des vlans</b></i>`,
+  > enable<br>
+  > configure terminal<br>
+  > interface <b><i>interface</b></i><br>
+  > switchport mode access<br>
+  > switchport access vlan <b><i>nummer des vlans</b></i>`,
 }, {
   message: `Der erste PC, den du mit dem Switch verbindest, wird an dem Interface/Port <b>f0/1</b> eingesteckt und soll dem VLAN <b>Minecraft</b> zugeordnet werden. Der zweite PC, den du mit dem Switch verbindest, wird an dem Interface/Port <b>f0/2</b> eingesteckt und soll dem VLAN <b>Counter-Strike</b> zugeordnet werden.<br>
   Zur Erinnerung, die Befehle müssen in dieser Reihenfolge eingegeben werden:<br>
-  enable<br>
-  configure terminal<br>
-  interface <b><i>interface</b></i><br>
-  switchport mode access<br>
-  switchport access vlan <b><i>nummer des vlans</b></i>`,
+  > enable<br>
+  > configure terminal<br>
+  > interface <b><i>interface</b></i><br>
+  > switchport mode access<br>
+  > switchport access vlan <b><i>nummer des vlans</b></i>`,
   action: (): void => { 
     Globals.currentLevel.renderElements();
   }

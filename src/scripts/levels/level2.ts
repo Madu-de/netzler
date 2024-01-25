@@ -26,18 +26,18 @@ export const level2: NetzlerLevel = new NetzlerLevel([{
   message: 'Dem Switch muss mitgeteilt werden, dass es verschiedene VLANs gibt, damit jeweils nur die PCs im gleichen VLAN miteinander kommunizieren können.',
 }, {
   message: `Die Befehlsreihenfolge zum einrichten von VLANs im Switch ist:<br>
-  enable<br>
-  configure terminal<br>
-  vlan <b><i>nummer des VLANs</b></i><br>
-  name <b><i>name des VLANs</b></i>`,
+  > enable<br>
+  > configure terminal<br>
+  > vlan <b><i>nummer des VLANs</b></i><br>
+  > name <b><i>name des VLANs</b></i>`,
 }, {
   message: 'Um die VLANs im Switch einzurichten klicke, mit dem <b>Auswahl Werkzeug</b> aus der Toolbar, auf den Switch welchen du einrichten möchtest.',
 }, {
   message: `Denk dran die Befehlsreihenfolge ist:<br>
-  enable<br>
-  configure terminal<br>
-  vlan <b><i>nummer des VLANs</b></i><br>
-  name <b><i>name des VLANs</b></i>
+  > enable<br>
+  > configure terminal<br>
+  > vlan <b><i>nummer des VLANs</b></i><br>
+  > name <b><i>name des VLANs</b></i>
   `,
 }, { 
   message: 'Das erste VLAN hat die Nummer 10 und hat den Namen Minecraft', 
