@@ -31,3 +31,20 @@ body {
   justify-content: center;
   height: calc(100dvh - 70px - 51px);
 }
+
+.pointer-cursor {
+  cursor: pointer;
+}
+
+.rotate {
+  animation: rotate 1s ease-in-out;
+}
+
+@keyframes rotate {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: -360deg;
+  }
+}
