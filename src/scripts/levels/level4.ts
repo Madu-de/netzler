@@ -32,7 +32,7 @@ switchElSolution.settings.set('switchport2-1', '2');
 switchElSolution.settings.set('switchport2-2', '3');
 
 export const level4: NetzlerLevel = new NetzlerLevel([{
-  message: 'Grandios *Quak*! Es gibt jetzt auf dem Switch ein Netz für die Minecraft Spieler und ein Netz für die Couterstrike Spieler. Damit diese nicht auf das Netz des Anderen zugreifen können.'
+  message: 'Grandios *Quak*! Es gibt jetzt auf dem Switch ein Netz für die Minecraft Spieler und ein Netz für die Counter-Strike Spieler. Damit diese nicht auf das Netz des Anderen zugreifen können.'
 }, {
   message: 'Aber woher weiß der Switch denn jetzt welcher PC zu welchem Netz gehört?',
 },{
