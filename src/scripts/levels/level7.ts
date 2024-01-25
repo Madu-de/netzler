@@ -147,9 +147,25 @@ laptop3Solution.settings.set('subnetzmaske', '255.255.255.0');
 laptop3Solution.settings.set('gateway', '192.168.1.1');
 
 export const level7: NetzlerLevel = new NetzlerLevel([{
-  message: 'Spektakulär *Quak*! Lass uns nun zum Aufbau des Netzwerkes für die LAN-Party kommen. Hierfür wirst du die Konfiguration der PCs und Laptops in die Hand nehmen!',
+  message: 'Spektakulär *Quak*! Lass uns nun zum Aufbau des Netzwerkes für die LAN-Party kommen. Hierfür wirst du die Konfiguration der PCs, Laptops, Switches und dem Router in die Hand nehmen!',
 }, {
-  message: '',
+  message: `Bitte gehe folgenermaßen vor:<br>
+  - Alle Laptops werden mit dem oberen Switch (S1) verbunden<br>
+  - Alle PCs werden mit den unteren Switch (S3) verbunden<br>
+  - Der obere und untere Switch (S1, S3), wird mit dem in der Mitte (S2) verbunden<br>
+  - Der Switch in der Mitte (S2) wird mit dem Router (R1) verbunden<br>
+  - Es gibt die VLANs 10 für Minecraft und 20 für Counter-Strike<br>
+  - Im oberen Switch sind 2 Laptops in VLAN 10 und einer in VLAN 20<br>
+  - Im unteren Switch ist ein PC in VLAN 10 und der andere in VLAN 20<br>
+  - Beide VLANs sollen über den Router miteinander kommunizieren können<br>
+  - Alle PCs, die sich in VLAN 10 befinden, kommunizieren über das Gateway (IP-Adresse des Subinterfaces im Router) 192.168.1.1<br>
+  - Alle PCs, die sich in VLAN 20 befinden, kommunizieren über das Gateway (IP-Adresse des Subinterfaces im Router) 192.168.2.1<br>
+  - Alle PCs haben die Subnetzmaske 255.255.255.0<br>
+  - Der erste PC (PC) hat die IP-Adresse 192.168.1.2, ist im Subnetz 10<br>
+  - Der zweite PC (PC2) hat die IP-Adresse 192.168.2.2, ist im Subnetz 20<br>
+  - Der erste Laptop (Laptop) hat die IP-Adresse 192.168.1.3 und ist im Subnetz 10<br>
+  - Der zweite Laptop (Laptop2) hat die IP-Adresse 192.168.2.3 und ist im Subnetz 20<br>
+  - Der dritte Laptop (Laptop3) hat die IP-Adresse 192.168.1.4 und ist im Subnetz 10<br>`,
   action: (): void => { 
     Globals.currentLevel.renderElements();
   }

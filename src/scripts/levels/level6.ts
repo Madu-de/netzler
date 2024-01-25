@@ -147,13 +147,13 @@ export const level6: NetzlerLevel = new NetzlerLevel([{
   > interface <b><i>name des Interfaces</b></i><br>
   > no shutdown`,
 }, {
-  message: `Also lass uns nun 2 VLANs mit einem Router miteinander verbinden! Verbinde die Geräte bitte folgendermaßen:<br>
+  message: `Also lass uns nun 2 VLANs mit einem Router miteinander verbinden! Gehe bitte so vor:<br>
   - Beide Laptops werden mit dem oberen Switch (S1) verbunden<br>
   - Beide PCs werden mit den unteren Switch (S3) verbunden<br>
   - Der obere und untere Switch (S1, S3), wird mit dem in der Mitte (S2) verbunden<br>
   - Der Switch in der Mitte (S2) wird mit dem Router (R1) verbunden<br>
   - Es gibt die VLANs 10 für Minecraft und 20 für Counter-Strike<br>
-  - Die jeweils 2 Geräte die an einem Switch angeschlossen sind, sind in unterschiedlichen VLANs (10, 20)<br>
+  - Im oberen Switch sind 2 Laptops in VLAN 10 und einer in VLAN 20.<br>
   - Beide VLANs sollen über den Router miteinander kommunizieren können`,
   action: (): void => { 
     Globals.currentLevel.renderElements();

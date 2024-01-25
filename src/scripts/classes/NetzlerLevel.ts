@@ -1,3 +1,4 @@
+import { CanvasElement } from "../../core/canvas/CanvasElement";
 import { setNewCharacterMessage } from "../NetzlerFunctions";
 import { Globals } from "../globals";
 import { NetzlerConnection, NetzlerLevelAction } from "../netzlertypes";
@@ -16,7 +17,8 @@ export class NetzlerLevel {
     this.netzlerActions = netzlerActions;
     this.netzlerActionsBackup = [ ...this.netzlerActions ];
     this.elements = elements;
-    this.elementsBackup = [ ...this.elements ];
+    this.elementsBackup = [];
+    this.generateNewBackup();
     this.elementsSolution = elementsSolution;
     this.nextLevel = nextLevel;
   }
@@ -70,6 +72,7 @@ export class NetzlerLevel {
   reset(): void {
     this.elements = [ ...this.elementsBackup ];
     this.netzlerActions = [ ...this.netzlerActionsBackup ];
+    this.generateNewBackup();
     Globals.canvas.removeAllElements();
     Globals.canvas.removeAllLines();
     this.init();
@@ -77,5 +80,13 @@ export class NetzlerLevel {
   
   init(): void {
     this.triggerNewAction();
+  }
+
+  private generateNewBackup(): void {
+    this.elementsBackup = [];
+    this.elements.forEach((element: NetzlerElement) => {
+      const celement: CanvasElement = element.getCanvasElement();
+      this.elementsBackup.push(new NetzlerElement(new CanvasElement(celement.getCoords().getX(), celement.getCoords().getY(), celement.getImage(), celement.getWidth(), celement.getHeight(), celement.priority), element.getPopup(), element.getCanvasElement().id));
+    });
   }
 }

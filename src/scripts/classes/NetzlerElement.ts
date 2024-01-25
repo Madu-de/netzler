@@ -37,6 +37,10 @@ export class NetzlerElement {
     return [...this.connections];
   }
 
+  getPopup(): NetzlerPopup {
+    return this.netzlerPopup;
+  }
+
   clearConnections(): void {
     this.connections = [];
   }
