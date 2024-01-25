@@ -154,6 +154,8 @@ export function drawCertificate(): void {
   ctx.fillText(`${Globals.cheated ? 'Cheats ' : ''}durchgespielt hat!`, 50, 180 + 35 + abstand + 35 + abstand + 30 + abstand);
   ctx.font = "80px 'Ink Free', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
   ctx.fillText(`Netzler`, 420, 380);
+  ctx.font = "10px 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
+  ctx.fillText('rbz-netzler.de', 10, 410);
 }
 
 export async function confetti(): Promise<void> {
