@@ -11,4 +11,8 @@ export class Globals {
 
   static currentPopupNetzlerElement: NetzlerElement;
   static currentLevel: NetzlerLevel;
+
+  static confettiCanvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById('confetticanvas');
+  static finished: boolean = false;
+  static username: string = 'Max Mustermann';
 }

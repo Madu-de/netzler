@@ -8,6 +8,7 @@ import switchTemplate2 from "../../popup-templates/switch-6-2.html";
 import switchTemplate3 from "../../popup-templates/switch-6-3.html";
 import routerTemplate1 from "../../popup-templates/router-6-1.html";
 import { NetzlerPopup } from '../classes/NetzlerPopup';
+import { level8 } from './level8';
 
 const pcCanvasElement: CanvasElement = new CanvasElement(100, 300, <HTMLImageElement>document.getElementById('pcpng'), 100, 100);
 const pc: NetzlerElement = new NetzlerElement(pcCanvasElement, new NetzlerPopup('PC', pcTemplate));
@@ -189,4 +190,4 @@ export const level7: NetzlerLevel = new NetzlerLevel([{
   switch2ElSolution,
   switch3ElSolution,
   routerElSolution,
-]);
+], level8);

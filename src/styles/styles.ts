@@ -5,3 +5,4 @@ import "./scrollbar.scss";
 import "./template.scss";
 import "./error.scss";
 import "./character.scss";
+import "./confetti.scss";

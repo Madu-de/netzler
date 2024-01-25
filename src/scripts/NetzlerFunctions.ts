@@ -81,12 +81,14 @@ function followMouse(ev: MouseEvent): void {
 }
 
 export function switchTool(tool: NetzlerTool): void {
+  if (Globals.finished) return;
   Globals.selectedTool = tool;
   const toolCursorImages: Map<NetzlerTool, HTMLImageElement> = new Map<NetzlerTool, HTMLImageElement>([
     ['selection', <HTMLImageElement>document.getElementById('selection-image')],
     ['move', <HTMLImageElement>document.getElementById('move-image')],
     ['delete', <HTMLImageElement>document.getElementById('delete-image')],
     ['cable', <HTMLImageElement>document.getElementById('cable-image')],
+    ['download', <HTMLImageElement>document.getElementById('downloadpng')]
   ]);
   Globals.canvasElement.style.cursor = `url('${toolCursorImages.get(tool).src}') 15 15, auto`;
 }
@@ -124,4 +126,22 @@ export function handleSuccessClick(netzlerElement: NetzlerElement, popup: HTMLEl
 
 export function setNewCharacterMessage(message: string): void {
   document.querySelector('#character-message-box').innerHTML = message || document.querySelector('#character-message-box').innerHTML;
+}
+
+export function drawCertificate(): void {
+  const canvas: HTMLCanvasElement = Globals.canvasElement;
+  const ctx: CanvasRenderingContext2D  = canvas.getContext('2d');
+  ctx.drawImage(<HTMLImageElement>document.getElementById('zertifikatpng'), 0, 0, 720, 420);
+  ctx.textAlign = 'left';
+  ctx.font = "30px 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
+  ctx.fillStyle = '#fff';
+  const abstand: number = 18;
+  ctx.fillText(`Dieses Zertifikat bestätigt, dass der Spieler`, 50, 180);
+  ctx.font = "35px 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
+  ctx.fillText(`${Globals.username}`, 50, 180 + 35 + abstand);
+  ctx.font = "30px 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
+  ctx.fillText(`das Netzwerktechnik Lernspiel "Netzler"`, 50, 180 + 35 + abstand + 35 + abstand);
+  ctx.fillText(`durchgespielt hat!`, 50, 180 + 35 + abstand + 35 + abstand + 30 + abstand);
+  ctx.font = "80px 'Ink Free', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
+  ctx.fillText(`Netzler`, 420, 380);
 }

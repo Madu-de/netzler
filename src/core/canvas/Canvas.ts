@@ -1,3 +1,4 @@
+import { Globals } from "../../scripts/globals";
 import { CanvasCoords } from "./CanvasCoords";
 import { CanvasElement } from "./CanvasElement";
 import { CanvasLine } from "./CanvasLine";
@@ -71,6 +72,7 @@ export class Canvas {
   }
 
   render(): void {
+    if (Globals.finished) return;
     requestAnimationFrame(() => this.render());
     this.context.clearRect(0, 0, this.width, this.height);
     if (this.elements.some((e: CanvasElement) => !e.isImageLoaded())) {

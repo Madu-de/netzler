@@ -1,0 +1,9 @@
+canvas#confetticanvas {
+  width: 100dvw;
+  height: 100dvh;
+  z-index: 50;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: url('../assets/party.svg') 15 15, auto;
+}

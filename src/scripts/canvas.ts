@@ -35,6 +35,7 @@ document.querySelector('.button-success').addEventListener('click', () => {
 });
 
 document.querySelector('#character-message-box').addEventListener('click', () => {
+  if (Globals.finished) return;
   try {
     Globals.currentLevel.triggerNewAction();
   } catch (e) {
