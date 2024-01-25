@@ -5,5 +5,8 @@ canvas#confetticanvas {
   position: absolute;
   top: 0;
   left: 0;
-  cursor: url('../assets/party.svg') 15 15, auto;
+}
+
+.party-cursor {
+  cursor: url('../assets/party.svg') 15 15, auto !important;
 }

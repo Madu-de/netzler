@@ -4,6 +4,7 @@ import { NetzlerElement } from "./classes/NetzlerElement";
 import { Globals } from "./globals";
 import { CanvasLine } from "../core/canvas/CanvasLine";
 import { NetzlerConnection, NetzlerTool } from "./netzlertypes";
+import JSConfetti from "js-confetti";
 
 export type NetzlerFunction = (mousecoords: CanvasCoords) => void;
 
@@ -144,4 +145,15 @@ export function drawCertificate(): void {
   ctx.fillText(`durchgespielt hat!`, 50, 180 + 35 + abstand + 35 + abstand + 30 + abstand);
   ctx.font = "80px 'Ink Free', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
   ctx.fillText(`Netzler`, 420, 380);
+}
+
+export async function confetti(): Promise<void> {
+  return new Promise<void>((resolve: (value: void | PromiseLike<void>) => void) => {
+    Globals.confettiCanvas.classList.remove('hidden');
+    const confetti: JSConfetti = new JSConfetti({ canvas: Globals.confettiCanvas });
+    confetti.addConfetti().then(() => {
+      Globals.confettiCanvas.classList.add('hidden');
+      resolve();
+    });
+  });
 }
