@@ -36,7 +36,7 @@ export const level4: NetzlerLevel = new NetzlerLevel([{
 }, {
   message: 'Aber woher weiß der Switch denn jetzt welcher PC zu welchem Netz gehört?',
 },{
-  message: 'Das teilst du dem Switch mit indem du die Ports den jeweiligen VLANS zuweist.',
+  message: 'Das teilst du dem Switch mit, indem du die Ports den jeweiligen VLANS zuweist.',
 },{
   message: `Dafür klickst du wieder den Switch an. Die Befehlsreihenfolge zum zuweisen der Ports zu den VLANs ist:<br>
   > enable<br>
