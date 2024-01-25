@@ -5,6 +5,7 @@ import { Globals } from "../globals";
 import switchTemplate from "../../popup-templates/switch-trunk.html";
 import switchTemplate2 from "../../popup-templates/switch-trunk2.html";
 import { NetzlerPopup } from '../classes/NetzlerPopup';
+import { level6 } from './level6';
 
 const pcCanvasElement: CanvasElement = new CanvasElement(100, 300, <HTMLImageElement>document.getElementById('pcpng'), 100, 100);
 const pc: NetzlerElement = new NetzlerElement(pcCanvasElement, new NetzlerPopup('PC', 'Keine Konfiguration in diesem Level notwendig!'));
@@ -19,7 +20,7 @@ const laptop: NetzlerElement = new NetzlerElement(laptopCanvasElement, new Netzl
 laptop.setMaxConnections(1);
 
 const laptopCanvasElement2: CanvasElement = new CanvasElement(600, 50, <HTMLImageElement>document.getElementById('laptoppng'), 80, 80);
-const laptop2: NetzlerElement = new NetzlerElement(laptopCanvasElement2, new NetzlerPopup('Laptop', 'Keine Konfiguration in diesem Level notwendig!'));
+const laptop2: NetzlerElement = new NetzlerElement(laptopCanvasElement2, new NetzlerPopup('Laptop2', 'Keine Konfiguration in diesem Level notwendig!'));
 laptop2.setMaxConnections(1);
 
 const switchCanvasElement: CanvasElement = new CanvasElement(350, 300, <HTMLImageElement>document.getElementById('switchpng'), 120, 120);
@@ -27,7 +28,7 @@ const switchEl: NetzlerElement = new NetzlerElement(switchCanvasElement, new Net
 switchEl.setMaxConnections(3);
 
 const switch2CanvasElement: CanvasElement = new CanvasElement(350, 50, <HTMLImageElement>document.getElementById('switchpng'), 120, 120);
-const switch2El: NetzlerElement = new NetzlerElement(switch2CanvasElement, new NetzlerPopup('Switch', switchTemplate2));
+const switch2El: NetzlerElement = new NetzlerElement(switch2CanvasElement, new NetzlerPopup('Switch2', switchTemplate2));
 switch2El.setMaxConnections(3);
 
 const pcSolution: NetzlerElement = new NetzlerElement(pcCanvasElement, new NetzlerPopup('PC', 'Keine Konfiguration in diesem Level notwendig!'), pcCanvasElement.id);
@@ -35,7 +36,7 @@ const pc2Solution: NetzlerElement = new NetzlerElement(pcCanvasElement2, new Net
 const laptopSolution: NetzlerElement = new NetzlerElement(laptopCanvasElement, new NetzlerPopup('Laptop', 'Keine Konfiguration in diesem Level notwendig!'), laptopCanvasElement.id);
 const laptop2Solution: NetzlerElement = new NetzlerElement(laptopCanvasElement2, new NetzlerPopup('Laptop', 'Keine Konfiguration in diesem Level notwendig!'), laptopCanvasElement2.id);
 const switchElSolution: NetzlerElement = new NetzlerElement(switchCanvasElement, new NetzlerPopup('Switch', switchTemplate), switchCanvasElement.id);
-const switch2ElSolution: NetzlerElement = new NetzlerElement(switch2CanvasElement, new NetzlerPopup('Switch', switchTemplate), switch2CanvasElement.id);
+const switch2ElSolution: NetzlerElement = new NetzlerElement(switch2CanvasElement, new NetzlerPopup('Switch', switchTemplate2), switch2CanvasElement.id);
 
 pcSolution.createConnection(switchElSolution, undefined, false);
 pc2Solution.createConnection(switchElSolution, undefined, false);
@@ -91,4 +92,4 @@ export const level5: NetzlerLevel = new NetzlerLevel([{
   laptop2Solution,
   switchElSolution,
   switch2ElSolution
-]);
+], level6);

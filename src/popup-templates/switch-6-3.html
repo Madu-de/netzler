@@ -1,0 +1,149 @@
+<div style="margin-bottom: 20px;">
+  Bringe die Befehle in die richtige Reihenfolge!
+</div>
+<div class="cmd-sequence-item">
+  <div class="cmd-sequence-item-title">S3#configure terminal</div>
+  <select name="configure" class="netzler-popup-item">
+    <option value="1" selected>1</option>
+    <option value="2">2</option>
+  </select>
+</div>
+
+<div class="cmd-sequence-item">
+  <div class="cmd-sequence-item-title">S3>enable</div>
+  <select name="enable" class="netzler-popup-item">
+    <option value="1">1</option>
+    <option value="2" selected>2</option>
+  </select>
+</div>
+
+<div style="margin-bottom: 20px;">
+  Richte das erste VLAN ein
+</div>
+<div class="cmd-sequence-item">
+  <div class="cmd-sequence-item-title">S3(config-vlan)#name Minecraft</div>
+  <select name="name1" class="netzler-popup-item">
+    <option value="1" selected>1</option>
+    <option value="2">2</option>
+  </select>
+</div>
+
+<div class="cmd-sequence-item">
+  <div class="cmd-sequence-item-title">S3(config)#vlan 10</div>
+  <select name="vlan1" class="netzler-popup-item">
+    <option value="1">1</option>
+    <option value="2" selected>2</option>
+  </select>
+</div>
+
+<div style="margin-bottom: 20px;">
+  Richte das zweite VLAN ein
+</div>
+<div class="cmd-sequence-item">
+  <div class="cmd-sequence-item-title">S3(config)#vlan 20</div>
+  <select name="vlan2" class="netzler-popup-item">
+    <option value="1" selected>1</option>
+    <option value="2">2</option>
+  </select>
+</div>
+
+<div class="cmd-sequence-item">
+  <div class="cmd-sequence-item-title">S3(config-vlan)#name Counter-Strike</div>
+  <select name="name2" class="netzler-popup-item">
+    <option value="1">1</option>
+    <option value="2" selected>2</option>
+  </select>
+</div>
+
+<div style="margin-bottom: 20px;">
+  Richte das erste "Access"-Interface ein
+</div>
+
+<div class="cmd-sequence-item">
+  <div class="cmd-sequence-item-title">S3(config-if)#switchport mode access</div>
+  <select name="switchport1" class="netzler-popup-item">
+    <option value="1" selected>1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select>
+</div>
+
+<div class="cmd-sequence-item">
+  <div class="cmd-sequence-item-title">S3(config-vlan)#interface f0/1</div>
+  <select name="interface1" class="netzler-popup-item">
+    <option value="1">1</option>
+    <option value="2" selected>2</option>
+    <option value="3">3</option>
+  </select>
+</div>
+
+<div class="cmd-sequence-item">
+  <div class="cmd-sequence-item-title">S3(config-if)#switchport access vlan 10</div>
+  <select name="switchport2" class="netzler-popup-item">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3" selected>3</option>
+  </select>
+</div>
+
+<div style="margin-bottom: 20px;">
+  Richte das zweite "Access"-Interface ein
+</div>
+
+<div class="cmd-sequence-item">
+  <div class="cmd-sequence-item-title">S3(config-if)#switchport mode access</div>
+  <select name="switchport3" class="netzler-popup-item">
+    <option value="1" selected>1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select>
+</div>
+
+<div class="cmd-sequence-item">
+  <div class="cmd-sequence-item-title">S3(config-if)#interface f0/2</div>
+  <select name="interface2" class="netzler-popup-item">
+    <option value="1">1</option>
+    <option value="2" selected>2</option>
+    <option value="3">3</option>
+  </select>
+</div>
+
+<div class="cmd-sequence-item">
+  <div class="cmd-sequence-item-title">S3(config-if)#switchport access vlan 20</div>
+  <select name="switchport4" class="netzler-popup-item">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3" selected>3</option>
+  </select>
+</div>
+
+<div style="margin-bottom: 20px;">
+  Richte das erste "Trunk"-Interface ein
+</div>
+
+<div class="cmd-sequence-item">
+  <div class="cmd-sequence-item-title">S3(config-if)#switchport mode trunk</div>
+  <select name="switchport5" class="netzler-popup-item">
+    <option value="1" selected>1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+  </select>
+</div>
+
+<div class="cmd-sequence-item">
+  <div class="cmd-sequence-item-title">S3(config-if)#switchport trunk allowed vlan 10,20</div>
+  <select name="switchport6" class="netzler-popup-item">
+    <option value="1">1</option>
+    <option value="2" selected>2</option>
+    <option value="3">3</option>
+  </select>
+</div>
+
+<div class="cmd-sequence-item">
+  <div class="cmd-sequence-item-title">S3(config-if)#interface g0/1</div>
+  <select name="interface3" class="netzler-popup-item">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3" selected>3</option>
+  </select>
+</div>
