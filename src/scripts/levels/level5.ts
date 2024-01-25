@@ -73,7 +73,7 @@ export const level5: NetzlerLevel = new NetzlerLevel([{
     > interface <b><i>interface</b></i><br>
     > switchport mode trunk<br>
     > switchport trunk allowed vlan <b><i>vlanid1,vlanid2,vlanid3,...</b></i><br><br>
-    > Ich kümmere mich um die access Ports! Verbinde bitte die 2 Laptops mit dem oberen Switch und die 2 PCs mit dem unteren Switch. Verbinde dann die Switches miteinander und konfiguriere bei beiden Switches die Trunks. Bei beiden ist hierfür das Interface <b>g0/1</b> vorgesehen.
+    Ich kümmere mich um die access Ports! Verbinde bitte die 2 Laptops mit dem oberen Switch und die 2 PCs mit dem unteren Switch. Verbinde dann die Switches miteinander und konfiguriere bei beiden Switches die Trunks. Bei beiden ist hierfür das Interface <b>g0/1</b> vorgesehen.
   `,
   action: (): void => { 
     Globals.currentLevel.renderElements();
