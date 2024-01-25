@@ -29,7 +29,7 @@ export const level3: NetzlerLevel = new NetzlerLevel([{
   > configure terminal<br>
   > vlan <b><i>nummer des VLANs</b></i><br>
   > name <b><i>name des VLANs</b></i><br>
-  > Unser zweites VLAN hat also die Nummer 20 und den Namen Counter-Strike`
+  Unser zweites VLAN hat also die Nummer 20 und den Namen Counter-Strike`
 }], [
   switchEl
 ], [
