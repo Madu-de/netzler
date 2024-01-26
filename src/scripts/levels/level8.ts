@@ -3,7 +3,7 @@ import { NetzlerLevel } from '../classes/NetzlerLevel';
 import { confetti, drawCertificate, switchTool } from '../NetzlerFunctions';
 
 export const level8: NetzlerLevel = new NetzlerLevel([{
-  message: 'ICH BIN ERSTAUNT *Quak*! Ich habe für dich ein Zertifikat erstellt! Lade es dir doch runter, indem du mit deiner linken Maustaste drauf klickst! Wenn du noch nicht genug hast, klick doch mal auf die Sprechblase, um das Konfetti nochmal schießen zu lassen. Du kannst mich aber auch dazu bringen, einen Salto zu machen. Sollte dich das Projekt an sich interessieren, dann klick doch mal auf den Namen oben in der Kopfzeile! Nun gut, ich hoffe ich konnte dir im Thema Netzwerk-Konfiguration helfen! Hab noch einen schönen Tag *Quak* *Quak*!',
+  message: 'ICH BIN ERSTAUNT *Quak*! Ich habe für dich ein Zertifikat erstellt! Lade es dir doch runter, indem du mit deiner linken Maustaste drauf klickst! Wenn du noch nicht genug hast, klick doch mal auf die Sprechblase, um das Konfetti nochmal schießen zu lassen. Du kannst mich aber auch dazu bringen, einen Salto zu machen. Sollte dich das Projekt an sich interessieren, dann klick doch mal auf den Namen oben in der Kopfzeile! Die Entwickler des Spieles findest du unten. Nun gut, ich hoffe ich konnte dir im Thema Netzwerk-Konfiguration helfen! Hab noch einen schönen Tag *Quak* *Quak*!',
   action: (): void => { 
     confetti();
     drawCertificate();
