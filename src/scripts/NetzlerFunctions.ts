@@ -168,3 +168,12 @@ export async function confetti(): Promise<void> {
     });
   });
 }
+
+export function triggerNewAction(): void {
+  if (Globals.finished) return;
+  try {
+    Globals.currentLevel.triggerNewAction();
+  } catch (e) {
+    showError('Du musst die Aufgabe beenden, damit es weiter geht!');
+  }
+}

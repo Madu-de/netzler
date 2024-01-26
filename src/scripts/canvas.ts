@@ -1,7 +1,7 @@
 import { Globals } from './globals';
 import { CanvasCoords } from './../core/canvas/CanvasCoords';
 import { NetzlerTool } from './netzlertypes';
-import { selectionTool, moveTool, deleteTool, cableTool, togglePopup, switchTool, showError, showSuccess } from './NetzlerFunctions';
+import { selectionTool, moveTool, deleteTool, cableTool, togglePopup, switchTool, showSuccess, triggerNewAction } from './NetzlerFunctions';
 
 import './levels/level1';
 import { level8 } from './levels/level8';
@@ -36,13 +36,14 @@ document.querySelector('.button-success').addEventListener('click', () => {
 });
 
 document.querySelector('#character-message-box').addEventListener('click', () => {
-  if (Globals.finished) return;
-  try {
-    Globals.currentLevel.triggerNewAction();
-  } catch (e) {
-    showError('Du musst die Aufgabe beenden, damit es weiter geht!');
-  }
+  triggerNewAction();
 });
+
+document.body.addEventListener('keyup', (e: KeyboardEvent) => {
+  if (e.key !== 'Enter') return;
+  triggerNewAction();
+});
+
 
 // Cheats
 document.body.addEventListener('keydown', (e: KeyboardEvent) => {
