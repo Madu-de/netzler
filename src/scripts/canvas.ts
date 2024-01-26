@@ -39,12 +39,6 @@ document.querySelector('#character-message-box').addEventListener('click', () =>
   triggerNewAction();
 });
 
-document.body.addEventListener('keyup', (e: KeyboardEvent) => {
-  if (e.key !== 'Enter') return;
-  triggerNewAction();
-});
-
-
 // Cheats
 document.body.addEventListener('keydown', (e: KeyboardEvent) => {
   // S = skip
