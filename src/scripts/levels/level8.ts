@@ -15,11 +15,15 @@ export const level8: NetzlerLevel = new NetzlerLevel([{
     characterImage.classList.add('pointer-cursor');
     Globals.canvasElement.addEventListener('click', () => {
       const aTag: HTMLAnchorElement = <HTMLAnchorElement>document.getElementById('zertifikat-download-a');
-      let url: string = Globals.canvasElement.toDataURL('image/png');
-      url = url.replace(/^data:image\/[^;]*/, 'data:application/octet-stream');
-      url = url.replace(/^data:application\/octet-stream/, 'data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename=Netzler-Zertifikat.png');
-      aTag.href = url;
-      aTag.click();
+      try {
+        let url: string = Globals.canvasElement.toDataURL('image/png');
+        url = url.replace(/^data:image\/[^;]*/, 'data:application/octet-stream');
+        url = url.replace(/^data:application\/octet-stream/, 'data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename=Netzler-Zertifikat.png');
+        aTag.href = url;
+        aTag.click();
+      } catch {
+        alert('Dieses Feature funktioniert nur auf einem Server (siehe: rbz-netzler.de). Ohne Server kann das Zertifikat nur mit "Rechtsklick>Bild speichern unter" gespeichert werden');
+      }
     });
     messagebox.addEventListener('click', () => {
       confetti();
