@@ -4,7 +4,8 @@ import { NetzlerTool } from './netzlertypes';
 import { selectionTool, moveTool, deleteTool, cableTool, togglePopup, switchTool, showSuccess, triggerNewAction } from './NetzlerFunctions';
 
 import './levels/level1';
-import { level8 } from './levels/level8';
+import { finalLevel } from './levels/finalLevel';
+
 Globals.canvas.render();
 switchTool('selection');
 
@@ -51,7 +52,7 @@ document.body.addEventListener('keydown', (e: KeyboardEvent) => {
   if (e.shiftKey && e.ctrlKey && e.altKey && e.metaKey && e.key === 'C') {
     Globals.cheated = true;
     Globals.username = prompt('Wie soll der Name des Spielers lauten?');
-    Globals.currentLevel = level8;
+    Globals.currentLevel = finalLevel;
     Globals.currentLevel.init();
     showSuccess('Cheat ausgeführt: Zertifikat');
   }
